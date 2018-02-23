@@ -1,0 +1,25 @@
+<div class="login-clean">
+  <form>
+    <div class="logo" style="padding: 0px 0px 40px 0px;">
+      <img src="./assets/images/intelisoft.png">
+    </div>
+
+    <div class="form-group">
+      <input type="text" name="login.usuario" [(value)]="login.usuario"
+        class="form-control"  placeholder="Usuario" autofocus required>
+    </div>
+    <div class="form-group">
+      <input type="password" name="login.clave" [(value)]="login.clave"
+        class="form-control"  placeholder="Contraseña" required>
+    </div>
+    <a class="forgot">
+      ¿Olvidaste la contraseña?
+    </a>
+    <a class="forgot">
+      Click Aquí
+    </a>
+    <div class="form-group">
+      <button class="btn btn-block btn-login">Iniciar Sesión</button>
+    </div>
+  </form>
+</div>
