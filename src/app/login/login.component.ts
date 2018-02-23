@@ -15,10 +15,14 @@ export class LoginComponent implements OnInit {
 
   ngOnInit() {
     this.login = {
-      correo: undefined,
-      clave: undefined
+      usuario: '',
+      clave: ''
     };
     this.entrando = false;
+  }
+
+  entrar(e) {
+    e.preventDefault();
   }
 }
 

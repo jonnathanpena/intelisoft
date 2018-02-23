@@ -36,3 +36,74 @@
   opacity: 0.9;
   text-decoration: none;
 }
+
+a.forgot.click {
+  color: #b3c1d9;
+  font-weight: bold;
+}
+
+.footer-basic {
+  padding: 40px 0;
+  background: transparent;
+}
+
+.footer-basic ul {
+  padding: 0;
+  list-style: none;
+  text-align: center;
+  font-size: 18px;
+  line-height: 1.6;
+  margin-bottom: 0;
+}
+
+.list-inline {
+  padding-left: 0;
+  margin-left: -5px;
+  list-style: none;
+}
+
+ol, ul {
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+
+.footer-basic .copyright {
+  margin-top: 15px;
+  text-align: center;
+  font-size: 13px;
+  color: #fff;
+  margin-bottom: 0;
+}
+
+a.innova {
+  color: #fff;
+}
+
+a.innova:hover {
+  color: #fff;
+}
+
+.list-inline li a {
+  color: #fff;
+}
+
+dx-text-box.form-control.usuario {
+  background: url(../../assets/images/iconos/ICON-USER1.png);
+  background-position: 1%;
+  background-repeat: no-repeat;
+  background-size: 13%;
+  padding-left: 11%;
+}
+
+dx-text-box.form-control.clave {
+  background: url(../../assets/images/iconos/ICON-CANDADO.png);
+  background-position: 1%;
+  background-repeat: no-repeat;
+  background-size: 13%;
+  padding-left: 11%;
+}
+
+/deep/ dx-text-box.form-control.usuario div.dx-texteditor-container input,
+/deep/ dx-text-box.form-control.clave div.dx-texteditor-container input {
+  background: transparent;
+}

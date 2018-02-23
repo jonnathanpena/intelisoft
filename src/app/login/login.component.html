@@ -1,25 +1,68 @@
 <div class="login-clean">
-  <form>
+  <form (submit)="entrar($event)">
     <div class="logo" style="padding: 0px 0px 40px 0px;">
       <img src="./assets/images/intelisoft.png">
     </div>
 
     <div class="form-group">
-      <input type="text" name="login.usuario" [(value)]="login.usuario"
-        class="form-control"  placeholder="Usuario" autofocus required>
+      <dx-text-box
+          class="form-control usuario"
+          name="login.usuario"
+          [(value)]="login.usuario"
+          placeholder="Usuario">
+        <dx-validator>
+          <dxi-validation-rule type="required" message="Usuario es requerido"></dxi-validation-rule>
+        </dx-validator>
+      </dx-text-box>
     </div>
     <div class="form-group">
-      <input type="password" name="login.clave" [(value)]="login.clave"
-        class="form-control"  placeholder="Contraseña" required>
+      <dx-text-box
+          class="form-control clave"
+          name="login.clave"
+          mode="possword"
+          [(value)]="login.clave"
+          placeholder="Contraseña">
+        <dx-validator>
+          <dxi-validation-rule type="required" message="Clave es requerida"></dxi-validation-rule>
+        </dx-validator>
+      </dx-text-box>
     </div>
     <a class="forgot">
       ¿Olvidaste la contraseña?
     </a>
-    <a class="forgot">
+    <a class="forgot click" style="cursor: pointer;">
       Click Aquí
     </a>
     <div class="form-group">
-      <button class="btn btn-block btn-login">Iniciar Sesión</button>
+      <dx-button
+          text="Iniciar Sesión"
+          [useSubmitBehavior]="true"
+          class="btn btn-block btn-login">
+      </dx-button>
     </div>
   </form>
+</div>
+<div class="footer-basic">
+  <footer>
+    <ul class="list-inline">
+      <li>
+        <a style="cursor: pointer;">
+          Loja
+        </a>
+      </li>
+      <li>
+        <a style="cursor: pointer;">
+          Loja
+        </a>
+      </li>
+      <li>
+        <a style="cursor: pointer;">
+          Loja
+        </a>
+      </li>
+    </ul>
+    <p class="copyright">
+      Intelisoft © 2018 | <a href="https://www.innovatuestilo.com/" class="innova">www.innovatuestilo.com</a>
+    </p>
+  </footer>
 </div>
