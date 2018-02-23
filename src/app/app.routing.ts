@@ -19,6 +19,15 @@ export const AppRoutes: Routes = [{
     path: 'envio-impresora',
     loadChildren: './envio-impresora/envioImpresora.module#EnvioImpresoraModule'
   },{
+    path: 'envio-bones',
+    loadChildren: './envio-bones/envioBones.module#EnvioBonesModule'
+  },{
+    path: 'data-cliente',
+    loadChildren: './data-cliente/dataCliente.module#DataClienteModule'
+  },{
+    path:'data-precio',
+    loadChildren: './data-precio/dataPrecio.module#DataPrecioModule'
+  },{
     path: 'email',
     loadChildren: './email/email.module#EmailModule'
   }, {
