@@ -11,7 +11,7 @@ export class LoginComponent implements OnInit {
   login: any = {};
   entrando: boolean;
 
-  constructor() {}
+  constructor(private router: Router) {}
 
   ngOnInit() {
     this.login = {
@@ -23,6 +23,7 @@ export class LoginComponent implements OnInit {
 
   entrar(e) {
     e.preventDefault();
+    this.router.navigate(['/dashboard/consultar']);
   }
 }
 
