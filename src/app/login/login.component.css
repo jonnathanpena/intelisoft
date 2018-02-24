@@ -37,9 +37,20 @@
   text-decoration: none;
 }
 
-a.forgot.click {
-  color: #b3c1d9;
+a.forgot {
+  padding-top: 5%;
   font-weight: bold;
+  font-family: Montserrat-Thin;
+  color: #938f8f;
+  font-size: 0.7em;
+}
+
+a.forgot.click {
+  padding-top: 0;
+  font-family: Montserrat-BlackItalic;
+  color: #171055;
+  opacity: 1;
+  font-size: 0.7em;
 }
 
 .footer-basic {
@@ -91,19 +102,35 @@ dx-text-box.form-control.usuario {
   background: url(../../assets/images/iconos/ICON-USER1.png);
   background-position: 1%;
   background-repeat: no-repeat;
-  background-size: 13%;
+  background-size: 10%;
   padding-left: 11%;
+  background-color: #f7f7f7;
+  -webkit-box-shadow: 0px -1px 5px #d4d4d4;
+  box-shadow: 0px -1px 5px #d4d4d4;
 }
 
 dx-text-box.form-control.clave {
   background: url(../../assets/images/iconos/ICON-CANDADO.png);
   background-position: 1%;
   background-repeat: no-repeat;
-  background-size: 13%;
+  background-size: 10%;
   padding-left: 11%;
+  background-color: #f7f7f7;
+  -webkit-box-shadow: 0px -1px 5px #d4d4d4;
+  box-shadow: 0px -1px 5px #d4d4d4;
 }
 
 /deep/ dx-text-box.form-control.usuario div.dx-texteditor-container input,
 /deep/ dx-text-box.form-control.clave div.dx-texteditor-container input {
   background: transparent;
+  font-family: Montserrat-Regular;
+  font-style: italic;
+}
+
+dx-button.btn-login {
+  margin-top: 10%;
+  height: 3.5em;
+  font-size: 1.2em;
+  font-family: Montserrat-Bold;
+  color: #000;
 }

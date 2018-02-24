@@ -9,6 +9,8 @@ import {TranslateModule, TranslateLoader} from '@ngx-translate/core';
 
 import { AngularFontAwesomeModule } from 'angular-font-awesome';
 
+import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
+
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
 }
@@ -23,6 +25,8 @@ import { HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { ConsultarComponent } from './consultar/consultar.component';
 
 import {
           DxButtonModule,
@@ -36,7 +40,9 @@ import {
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent
+    LoginComponent,
+    DashboardComponent,
+    ConsultarComponent
   ],
   imports: [
     DxButtonModule,
@@ -49,6 +55,7 @@ import {
     TranslationsModule,
     AngularFontAwesomeModule,
     AppRoutingModule,
+    BsDropdownModule.forRoot(),
     TranslateModule.forRoot({
       loader: {
           provide: TranslateLoader,
