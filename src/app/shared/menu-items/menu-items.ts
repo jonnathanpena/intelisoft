@@ -120,7 +120,7 @@ const MENUITEMS = [
     icon: 'ecommerce-basket-remove'
   },
   {
-    state: 'cerrar-sesion',
+    state: '',
     name: 'Cerrar Sesión',
     type: 'link',
     icon: 'arrows-square-remove'

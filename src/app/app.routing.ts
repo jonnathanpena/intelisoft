@@ -36,9 +36,6 @@ export const AppRoutes: Routes = [{
   },{
     path: 'pendiente',
     loadChildren: './pendiente/pendiente.module#PendienteModule'
-  },{
-    path: 'cerrar-sesion',
-    loadChildren: './cerrar-sesion/cerrarSesion.module#CerrarSesionModule'
   }]
 }, {
   path: '',
