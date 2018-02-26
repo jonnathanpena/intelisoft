@@ -1,5 +1,8 @@
 import { Router } from '@angular/router';
 import { Component, TemplateRef, OnInit } from '@angular/core';
+import { NgClass } from '@angular/common';
+
+import { NavegacionProvider } from '../providers/navegacion.provider';
 
 @Component({
   selector: 'app-dashboard',
@@ -10,7 +13,9 @@ import { Component, TemplateRef, OnInit } from '@angular/core';
 export class DashboardComponent implements OnInit {
   cedula: any;
 
-  constructor() {}
+  constructor(
+    public navegacion: NavegacionProvider
+  ) {}
 
   ngOnInit() {
     this.cedula = '';

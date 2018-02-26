@@ -129,6 +129,56 @@ div.logo img {
   color: #6489b8;
 }
 
+.nombre {
+  background: url(../../assets/images/iconos/ICON-NAME.png);
+  background-repeat: no-repeat;
+  background-position: left;
+  background-size: 8%;
+  padding-left: 8%;
+  color: #8f8f8f;
+}
+
+.apellido {
+  background: url(../../assets/images/iconos/ICON-APELLIDO.png);
+  background-repeat: no-repeat;
+  background-position: left;
+  background-size: 8%;
+  padding-left: 8%;
+  color: #8f8f8f;
+}
+
+.finca {
+  background: url(../../assets/images/iconos/ICON-BAR.png);
+  background-repeat: no-repeat;
+  background-position: left;
+  background-size: 8%;
+  padding-left: 8%;
+  color: #8f8f8f;
+}
+
+.codigo {
+  background: url(../../assets/images/iconos/ICON-CODEBAR.png);
+  background-repeat: no-repeat;
+  background-position: left;
+  background-size: 8%;
+  padding-left: 8%;
+  color: #8f8f8f;
+}
+
+.direccion {
+  background: url(../../assets/images/iconos/ICON-LOCA.png);
+  background-repeat: no-repeat;
+  background-position: left;
+  background-size: 8%;
+  padding-left: 8%;
+  color: #8f8f8f;
+}
+
+.dato {
+  color: #e36220;
+  padding-left: 8%;
+}
+
 @media (max-width:767px) {
 
   .navigation-clean {

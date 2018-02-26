@@ -2,6 +2,10 @@
   width: 100%;
 }
 
+div.row.formulario {
+  margin-top: 5%;
+}
+
 h4 {
   width: 100%;
   color: #124c96;
@@ -62,11 +66,27 @@ dx-button.boton {
   padding-left: 15%;
 }
 
-.nombre {
+.nombre-finca {
   background: url(../../assets/images/iconos/ICON-BAR.png);
   background-repeat: no-repeat;
   background-position: left;
   background-size: 15%;
+  padding-left: 15%;
+}
+
+.nombre {
+  background: url(../../assets/images/iconos/ICON-NAME.png);
+  background-repeat: no-repeat;
+  background-position: left;
+  background-size: 25%;
+  padding-left: 15%;
+}
+
+.direccion {
+  background: url(../../assets/images/iconos/ICON-LOCA.png);
+  background-repeat: no-repeat;
+  background-position: left;
+  background-size: 25%;
   padding-left: 15%;
 }
 
@@ -92,6 +112,54 @@ dx-button.boton {
   background-position: left;
   background-size: 25%;
   padding-left: 15%;
+}
+
+.parroquia {
+  background: url(../../assets/images/iconos/ICON-PARROQ.png);
+  background-repeat: no-repeat;
+  background-position: left;
+  background-size: 25%;
+  padding-left: 15%;
+}
+
+.email {
+  background: url(../../assets/images/iconos/ICON-EMAIL.png);
+  background-repeat: no-repeat;
+  background-position: left;
+  background-size: 15%;
+  padding-left: 15%;
+}
+
+.cedula {
+  background: url(../../assets/images/iconos/ICON-CEDULA.png);
+  background-repeat: no-repeat;
+  background-position: left;
+  background-size: 25%;
+  padding-left: 15%;
+}
+
+.gps {
+  background: url(../../assets/images/iconos/ICON-LATITUDE.png);
+  background-repeat: no-repeat;
+  background-position: left;
+  background-size: 25%;
+  padding-left: 15%;
+}
+
+h6.Referencia {
+  color: #e36220;
+}
+
+dx-button.boton{
+  margin-top: 10px;
+  height: 2.5em;
+  font-size: 0.9em;
+  font-family: Montserrat-Bold;
+  color: #124c96;
+  border: 1px solid #124c96;
+  border-radius: 5px;
+  float: right;
+  margin-left: 20px;
 }
 
 

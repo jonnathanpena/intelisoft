@@ -28,6 +28,10 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { ConsultarComponent } from './consultar/consultar.component';
+import { OrdenComponent } from './orden/orden.component';
+import { EntregaComponent } from './entrega/entrega.component';
+
+import { NavegacionProvider } from './providers/navegacion.provider';
 
 import {
           DxButtonModule,
@@ -44,7 +48,9 @@ import {
     LoginComponent,
     DashboardComponent,
     ConsultarComponent,
-    CrearComponent
+    CrearComponent,
+    OrdenComponent,
+    EntregaComponent
   ],
   imports: [
     DxButtonModule,
@@ -67,7 +73,8 @@ import {
     })
   ],
   providers: [
-    DatePipe
+    DatePipe,
+    NavegacionProvider
   ],
   bootstrap: [AppComponent]
 })
