@@ -42,6 +42,10 @@ const MENUITEMS = [
         name: 'Listar Usuarios PV'
       },
       {
+        state: 'control-pv',
+        name: 'Control de Punto de Venta'
+      },
+      {
         state: 'precio-arete',
         name: 'Precio Arete'
       }

@@ -3,6 +3,7 @@ import { Routes } from '@angular/router';
 import { CrearUsuarioComponent } from './crear-usuario-pv/crearUsuarioPV.component';
 import { ListarUsuarioComponent } from  './listar-usuario-pv/listarUsuarioPV.component';
 import { PrecioAreteComponent } from './precio-arete/precioArete.component';
+import { ControlPVComponent } from './control-pv/controlPV.component';
 
 export const PuntoVentaRoutes: Routes = [
   {
@@ -24,6 +25,12 @@ export const PuntoVentaRoutes: Routes = [
       component: PrecioAreteComponent,
       data: {
         heading: 'Precio de Arete'
+      },
+    },{
+      path: 'control-pv',
+      component: ControlPVComponent,
+      data: {
+        heading: 'Control de Punto de Venta'
       }
     }]
   }
