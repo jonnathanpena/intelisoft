@@ -57,39 +57,72 @@
   </div>
 </div>
 <div class="row">
-  <div class="col-lg-6">
+  <div class="col-lg-12">
     <div class="card">
       <div class="card-header no-shadow">
         <div class="card-header-text w-100">
           <div class="card-title">
-            Gráfica Semanal Precio
+            Estadística por grupo Punto de Venta
           </div>
-          <div class="card-subtitle text-capitalize ff-sans">
-            Precios de la semana agrupado por Provincia
-          </div>
+            <div class="card-subtitle text-capitalize ff-sans">
+              Precios agrupado por Provincia
+            </div>
+            <div class="row">
+              <label for="example-text-input" class="col-2 col-form-label">Consulta</label>                
+              <div class="col-3">
+                <select _ngcontent-c7="" class="form-control" id="disabledSelect">
+                  <option _ngcontent-c7="">Seleccione Provincia</option>
+                  <option _ngcontent-c7="">Azuay</option>
+                  <option _ngcontent-c7="">Bolívar</option>
+                  <option _ngcontent-c7="">Cañar</option>                    
+                  <option _ngcontent-c7="">Carchi</option>                    
+                  <option _ngcontent-c7="">Chimborazo</option>                    
+                  <option _ngcontent-c7="">Cotopaxi</option>                    
+                  <option _ngcontent-c7="">El Oro</option>                    
+                  <option _ngcontent-c7="">Esmeraldas</option>                    
+                  <option _ngcontent-c7="">Galápagos</option>                    
+                  <option _ngcontent-c7="">Guayas</option>                    
+                  <option _ngcontent-c7="">Imbabura</option>                    
+                  <option _ngcontent-c7="">Loja</option>                    
+                  <option _ngcontent-c7="">Los Ríos</option>                    
+                  <option _ngcontent-c7="">Manabí</option>                    
+                  <option _ngcontent-c7="">Morona Santiago</option>                    
+                  <option _ngcontent-c7="">Napo</option>                    
+                  <option _ngcontent-c7="">Orellana</option>                    
+                  <option _ngcontent-c7="">Pastaza</option>                    
+                  <option _ngcontent-c7="">Pichincha</option>                    
+                  <option _ngcontent-c7="">Santa Elena</option>                    
+                  <option _ngcontent-c7="">Santo Domingo de los Tsáchilas</option>                    
+                  <option _ngcontent-c7="">Sucumbíos</option>                    
+                  <option _ngcontent-c7="">Tungurahua</option>                    
+                  <option _ngcontent-c7="">Zamora Chinchipe</option>                    
+                </select>
+              </div>
+              <label for="example-text-input" class="col-1 col-form-label">Desde</label>                
+              <div class="col-2">
+                  <input class="form-control" type="date" placeholder="dd/mm/aaaa" id="desde-pv">
+              </div> 
+              <label for="example-text-input" class="col-1 col-form-label">Hasta</label>                
+              <div class="col-2">
+                  <input class="form-control" type="date" placeholder="dd/mm/aaaa" id="hasta-pv">
+              </div>  
+            </div>
+            <div class="row">
+              <label for="example-text-input" class="col-2 col-form-label">Consulta</label>                                
+              <div class="col-3">
+                <select _ngcontent-c7="" class="form-control" id="disabledSelect">
+                  <option _ngcontent-c7="">Día</option>
+                  <option _ngcontent-c7="">Semana</option>
+                  <option _ngcontent-c7="">Mes Actual</option>
+                  <option _ngcontent-c7="">Anual</option>                    
+                </select>
+              </div>
+            </div>
         </div>
       </div>
       <div class="mb-1">
         <ngx-charts-area-chart-stacked (legendlabelclick)="onLegendLabelClick($event)" (select)="select($event)" [curve]="curve" [gradient]="gradient" [legend]="showLegend" [results]="dateData" [roundDomains]="roundDomains" [scheme]="colorScheme" [schemeType]="schemeType" [showGridLines]="showGridLines" [showXAxisLabel]="showXAxisLabel" [showYAxisLabel]="showYAxisLabel" [timeline]="timeline" [tooltipDisabled]="tooltipDisabled" [xAxis]="showXAxis" [xAxisLabel]="xAxisLabel" [yAxis]="showYAxis" [yAxisLabel]="yAxisLabel" class="line-container">
         </ngx-charts-area-chart-stacked>
-      </div>
-    </div>
-  </div>
-  <div class="col-lg-6">
-    <div class="card">
-      <div class="card-header no-shadow">
-        <div class="card-header-text w-100">
-          <div class="card-title">
-            Gráfica Precio Día
-          </div>
-          <div class="card-subtitle text-capitalize ff-sans">
-            Precios del Día por Punto de Venta
-          </div>
-        </div>
-      </div>
-      <div class="mb-1">
-        <ngx-charts-gauge (legendlabelclick)="onLegendLabelClick($event)" (select)="select($event)" [angleSpan]="gaugeAngleSpan" [bigSegments]="gaugeLargeSegments" [legend]="showLegend" [margin]="margin ? [marginTop, marginRight, marginBottom, marginLeft] : null" [max]="gaugeMax" [min]="gaugeMin" [results]="single" [scheme]="colorScheme" [showAxis]="gaugeShowAxis" [smallSegments]="gaugeSmallSegments" [startAngle]="gaugeStartAngle" [textValue]="gaugeTextValue" [tooltipDisabled]="tooltipDisabled" [units]="gaugeUnits" class="gauge-container">
-        </ngx-charts-gauge>
       </div>
     </div>
   </div>

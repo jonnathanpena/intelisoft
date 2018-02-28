@@ -36,6 +36,9 @@ export const AppRoutes: Routes = [{
   },{
     path: 'pendiente',
     loadChildren: './pendiente/pendiente.module#PendienteModule'
+  },{
+    path: 'sueltos-restantes',
+    loadChildren: './sueltos-restantes/sueltosRestantes.module#SueltosRestantesModule'
   }]
 }, {
   path: '',

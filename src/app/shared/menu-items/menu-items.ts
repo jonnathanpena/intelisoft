@@ -120,6 +120,12 @@ const MENUITEMS = [
     icon: 'ecommerce-basket-remove'
   },
   {
+    state: 'sueltos-restantes',
+    name: 'Sueltos Restantes',
+    type: 'link',
+    icon: 'ecommerce-banknote'
+  },
+  {
     state: '',
     name: 'Cerrar Sesión',
     type: 'link',
