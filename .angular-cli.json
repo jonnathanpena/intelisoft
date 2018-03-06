@@ -26,7 +26,9 @@
         "../node_modules/angular-calendar/scss/angular-calendar.scss",
         "../node_modules/@swimlane/ngx-datatable/release/index.css",
         "assets/fonts/data-table/icons.css",
-        "assets/styles/app.scss"
+        "assets/styles/app.scss",
+        "../node_modules/devextreme/dist/css/dx.common.css",
+        "../node_modules/devextreme/dist/css/dx.light.css"
       ],
       "scripts": [],
       "environmentSource": "environments/environment.ts",

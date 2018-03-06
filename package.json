@@ -34,6 +34,8 @@
     "classlist.js": "^1.1.20150312",
     "core-js": "2.5.1",
     "d3": "^4.8.0",
+    "devextreme": "^17.2.4",
+    "devextreme-angular": "^17.2.4",
     "dragula": "3.7.2",
     "intl": "^1.2.5",
     "ng-sidebar": "6.0.4",
