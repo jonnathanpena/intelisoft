@@ -1,8 +1,16 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { Subject } from 'rxjs/Subject';
+import 'rxjs/add/operator/debounceTime';
 import { PuntoVentaProviders } from '../puntoVenta.providers';
 
 import { Validators, FormControl, FormGroup } from '@angular/forms';
 import { CustomValidators } from 'ng2-validation';
+
+export interface IAlert {
+  id: number;
+  type: string;
+  message: string;
+}
 
 @Component({
   selector: 'app-crearUsuarioPV',
@@ -10,6 +18,10 @@ import { CustomValidators } from 'ng2-validation';
   styleUrls: ['./crearUsuarioPV.component.scss']
 })
 export class CrearUsuarioComponent implements OnInit {
+  @Input()
+  public alerts: Array<IAlert> = [];
+
+  private backup: Array<IAlert>;
   myModel: string;
   modelWithValue: string;
   mask: Array<string | RegExp>;
@@ -81,6 +93,7 @@ export class CrearUsuarioComponent implements OnInit {
   guardar(e) {
     e.preventDefault();
     console.log('a guardar', this.nuevo);
+    this.guardando = true;
     this.service.insertPersonas(this.nuevo).subscribe(resp => {
       console.log('insert persona', resp['_body']);
       this.guardarUsuario(resp['_body']);
@@ -107,12 +120,22 @@ export class CrearUsuarioComponent implements OnInit {
     console.log('filial guardar', this.nuevo);
     this.service.insertFilial(this.nuevo).subscribe(resp => {
       console.log('insert filial', resp['_body']);
+      this.guardando = false;
       if (resp['_body'] === 'true') {
-        console.log('guardado exitoso');
+        this.alerts.push({
+          id: 1,
+          type: 'success',
+          message: '¡Punto de Venta agregado exitosamente!'
+        });
         this.ngOnInit();
       } else {
-        console.log('guardado fallido');
+        this.alerts.push({
+          id: 2,
+          type: 'warning',
+          message: '¡Ooops! Algo ocurrió mal'
+        });
       }
+      this.backup = this.alerts.map((alert: IAlert) => Object.assign({}, alert));
     });
   }
 
@@ -128,5 +151,15 @@ export class CrearUsuarioComponent implements OnInit {
   cambioCanton(e) {
     this.nuevo.canton_per_id = e.value * 1;
   }
+
+  public closeAlert(alert: IAlert) {
+    const index: number = this.alerts.indexOf(alert);
+    this.alerts.splice(index, 1);
+  }
+
+  public reset() {
+    this.alerts = this.backup.map((alert: IAlert) => Object.assign({}, alert));
+  }
+
  }
 

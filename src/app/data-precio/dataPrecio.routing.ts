@@ -1,10 +1,10 @@
 import { Routes } from '@angular/router';
 
-import { dataPrecioComponent } from './dataPrecio.component';
+import { DataPrecioComponent } from './dataPrecio.component';
 
 export const DataPrecioRoutes: Routes = [{
   path: '',
-  component: dataPrecioComponent,
+  component: DataPrecioComponent,
   data: {
     heading: 'Data Precio',
     removeFooter: true

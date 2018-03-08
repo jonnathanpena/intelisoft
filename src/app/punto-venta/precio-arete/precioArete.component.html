@@ -1,76 +1,77 @@
-<div class="card">
-    <div class="card-header">Precio de Arete</div>
-    <div class="card-body">
-        <p>Precio Neto de Arete para os Puntos de Venta</p>
-        <div class="form-group row justify-content-md-center">
-            <label for="example-text-input" class="col-2 col-form-label">Precio x Und</label>
-            <div class="col-4">
-                <input class="form-control" type="numeric" placeholder="1.0" id="precio-arete-pv">
-            </div>
-        </div>
-            
-        <div class="form-group row justify-content-md-center">
-            <button type="submit" class="btn btn-primary">Registrar</button>
-        </div>           
+<div class="row">
+  <div class="col-12">
+    <div *ngFor="let alert of alerts">
+      <ngb-alert [type]="alert.type" (close)="closeAlert(alert)">{{ alert.message }}</ngb-alert>
     </div>
+  </div>
 </div>
 
 <div class="card">
-    <div class="card-header">
-        Lista Precios de Aretes
-    </div>
-    <div class="card-body">
+  <div class="card-header">Precio de Arete</div>
+  <div class="card-body">
+    <p>Precio Neto de Arete para os Puntos de Venta</p>
+    <form (submit)="guardar($event)">
+      <div class="form-group row justify-content-md-center">
+        <label for="example-text-input" class="col-2 col-form-label">Precio x Und</label>
+        <div class="col-4">
+          <dx-text-box
+              mode="float"
+              class="form-control"
+              name="precio_intpre"
+              id="precio_intpre"
+              [(value)]="nuevo.precio_intpre">
+            <dx-validator>
+              <dxi-validation-rule type="required" message="Precio es requerido"></dxi-validation-rule>
+            </dx-validator>
+          </dx-text-box>
+        </div>
+      </div>
+      <div class="form-group row justify-content-md-center">
+        <dx-button
+            text="Registrar"
+            class="btn btn-primary pull-right"
+            [useSubmitBehavior]="true"
+            [disabled]="guardando">
+        </dx-button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-header">
+    Lista Precios de Aretes
+  </div>
+  <div class="card-body">
     <div class="table-responsive">
-        <table class="table table-bordered table-striped mb-0">
+      <table class="table table-bordered table-striped mb-0">
         <thead>
-            <tr>
-                <th>
-                    Usuario
-                </th>
-                <th class="date">
-                    Fecha de Registro
-                </th>
-                <th>
-                    Precio
-                </th>
-            </tr>
+          <tr>
+            <th>
+              Usuario
+            </th>
+            <th class="date">
+              Fecha de Registro
+            </th>
+            <th>
+              Precio
+            </th>
+          </tr>
         </thead>
         <tbody>
-            <tr>
-                <td data-title="Usuario">
-                    admin
-                </td>
-                <td data-title="Fecha de Registro" class="date">
-                    7/03/2018
-                </td>
-                <td data-title="Precio">
-                    2.09
-                </td>
-            </tr>
-            <tr>
-                <td data-title="Usuario">
-                    admin
-                </td>
-                <td data-title="Fecha de Registro" class="date">
-                    7/03/2018
-                </td>
-                <td data-title="Precio">
-                    2.09
-                </td>
-            </tr>
-            <tr>
-                <td data-title="Usuario">
-                    admin
-                </td>
-                <td data-title="Fecha de Registro" class="date">
-                    7/03/2018
-                </td>
-                <td data-title="Precio">
-                    2.09
-                </td>
-            </tr>
+          <tr *ngFor="let precio of precios">
+            <td data-title="Usuario">
+              {{precio.usuario_intusu}}
+            </td>
+            <td data-title="Fecha de Registro" class="date">
+              {{precio.fecha_intpre}}
+            </td>
+            <td data-title="Precio">
+              {{precio.precio_intpre}}
+            </td>
+          </tr>
         </tbody>
-        </table>
+      </table>
     </div>
-    </div>
+  </div>
 </div>

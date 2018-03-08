@@ -3,14 +3,18 @@ import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 
 import { DataPrecioRoutes } from './dataPrecio.routing';
-import { dataPrecioComponent } from './dataPrecio.component';
+import { DataPrecioComponent } from './dataPrecio.component';
+import { DataPrecioProviders } from './dataPrecio.providers';
 
 @NgModule({
   imports: [
     CommonModule,
     RouterModule.forChild(DataPrecioRoutes)
   ],
-  declarations: [dataPrecioComponent]
+  declarations: [DataPrecioComponent],
+  providers: [
+    DataPrecioProviders
+  ]
 })
 
 export class DataPrecioModule {}

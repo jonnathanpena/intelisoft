@@ -15,6 +15,16 @@ export class  PuntoVentaProviders {
       .map((res: Response) => res.json());
   }
 
+  public getAllFiliales() {
+    return this.http.get(this.urlProvider.getAllFiliales())
+      .map((res: Response) => res.json());
+  }
+
+  public getAllPrecios() {
+    return this.http.get(this.urlProvider.getAllPrecios())
+      .map((res: Response) => res.json());
+  }
+
   public getCantonesPorProvincia(objeto: any) {
     return this.http.post(this.urlProvider.getCantonesPorProvincia(), JSON.stringify(objeto), {
       headers: new Headers({ 'Content-Type': 'application/json' })
@@ -38,6 +48,34 @@ export class  PuntoVentaProviders {
 
   public insertFilial(objeto: any) {
     return this.http.post(this.urlProvider.insertFilial(), JSON.stringify(objeto), {
+      headers: new Headers({ 'Content-Type': 'application/json' })
+    })
+      .map((resp: Response) => resp);
+  }
+
+  public insertPrecio(objeto: any) {
+    return this.http.post(this.urlProvider.insertPrecioArete(), JSON.stringify(objeto), {
+      headers: new Headers({ 'Content-Type': 'application/json' })
+    })
+      .map((resp: Response) => resp);
+  }
+
+  public updatePersona(objeto: any) {
+    return this.http.post(this.urlProvider.updatePersona(), JSON.stringify(objeto), {
+      headers: new Headers({ 'Content-Type': 'application/json' })
+    })
+      .map((resp: Response) => resp);
+  }
+
+  public updateFilial(objeto: any) {
+    return this.http.post(this.urlProvider.updateFilial(), JSON.stringify(objeto), {
+      headers: new Headers({ 'Content-Type': 'application/json' })
+    })
+      .map((resp: Response) => resp);
+  }
+
+  public updateUsuario(objeto: any) {
+    return this.http.post(this.urlProvider.updateUsuario(), JSON.stringify(objeto), {
       headers: new Headers({ 'Content-Type': 'application/json' })
     })
       .map((resp: Response) => resp);

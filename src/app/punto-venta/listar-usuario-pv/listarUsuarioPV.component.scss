@@ -1,0 +1,58 @@
+dx-text-box {
+  width: 100%;
+  border-radius: 0;
+}
+
+dx-text-box.dx-texteditor.dx-state-focused {
+  border-color: rgba(0, 0, 0, 0.12);
+}
+
+/deep/ dx-text-box div.dx-texteditor-container {
+  width: 100%;
+}
+
+/deep/ dx-text-box.dx-state-focused div.dx-texteditor-container {
+  border: 0;
+}
+
+/deep/ input.dx-texteditor-input {
+  background-color: #928f91;
+  color: rgba(0, 0, 0, 0.87);
+  border-color: rgba(0, 0, 0, 0.12);
+  border-radius: 0;
+}
+
+/deep/ dx-text-box.dx-texteditor.dx-state-focused input.dx-texteditor-input {
+  background-color: transparent;
+  color: rgba(0, 0, 0, 0.87);
+  border-color: rgba(0, 0, 0, 0.12);
+}
+
+dx-button.btn.btn-primary {
+  background-color: #0a2ffe;
+  background-image: none;
+  border-color: #0127fa;
+  color: #fff;
+  border-radius: 0;
+}
+
+dx-button.btn.btn-primary:hover {
+  background-color: #0a2ffe;
+  background-image: none;
+  border-color: #0127fa;
+  color: #fff;
+}
+
+dx-button.btn.btn-cancelar {
+  color: #fff;
+  background-color: #e3611f;
+  border-color: #e3611f;
+  border-radius: 0;
+}
+
+dx-button.btn.btn-cancelar:hover {
+  color: #fff;
+  background-color: #e3611f;
+  border-color: #e3611f;
+  border-radius: 0;
+}
