@@ -10,11 +10,30 @@
           <div class="col-lg-4 col-lg-offset-4 col-md-4 col-md-offset-4 col-sm-4 col-sm-offset-4 col-xs-12">
             <div class="form-group">
               <label class="cedula">
+                Nº Orden
+              </label>
+              <dx-text-box
+                  class="form-control"
+                  placeholder="Cédula de Identidad"
+                  [value]="orden.ord_detalle_id"
+                  [disabled]="true">
+                <dx-validator>
+                  <dxi-validation-rule type="required" message="Cédula de Identidad es requerida"></dxi-validation-rule>
+                </dx-validator>
+              </dx-text-box>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-lg-offset-4 col-md-4 col-md-offset-4 col-sm-4 col-sm-offset-4 col-xs-12">
+            <div class="form-group">
+              <label class="cedula">
                 Cédula
               </label>
               <dx-text-box
                   class="form-control"
-                  placeholder="Cédula de Identidad">
+                  placeholder="Cédula de Identidad"
+                  [(value)]="cliente.cliente.cedula_intper"
+                  [disabled]="true">
                 <dx-validator>
                   <dxi-validation-rule type="required" message="Cédula de Identidad es requerida"></dxi-validation-rule>
                 </dx-validator>
@@ -28,8 +47,11 @@
                 Cantidad de Aretes
               </label>
               <dx-text-box
+                  mode="number"
                   class="form-control"
-                  placeholder="Cantidad de Aretes">
+                  placeholder="Cantidad de Aretes"
+                  [(value)]="orden.cant_aretes_intdetord"
+                  (onValueChanged)="cambiarCantidadArete($event)">
                 <dx-validator>
                   <dxi-validation-rule type="required" message="Cantidad de Aretes es requerido"></dxi-validation-rule>
                 </dx-validator>
@@ -45,7 +67,8 @@
               <dx-text-box
                   class="form-control"
                   placeholder="Subtotal"
-                  [disabled]="true">
+                  [disabled]="true"
+                  [(value)]="orden.sub_total_intdetord">
                 <dx-validator>
                   <dxi-validation-rule type="required" message="Subtotal es requerido"></dxi-validation-rule>
                 </dx-validator>
@@ -61,7 +84,8 @@
               <dx-text-box
                   class="form-control"
                   placeholder="I.V.A."
-                  [disabled]="true">
+                  [disabled]="true"
+                  [(value)]="orden.iva_intdetord">
                 <dx-validator>
                   <dxi-validation-rule type="required" message="I.V.A. es requerido"></dxi-validation-rule>
                 </dx-validator>
@@ -77,7 +101,8 @@
               <dx-text-box
                   class="form-control"
                   placeholder="Total a Pagar"
-                  [disabled]="true">
+                  [disabled]="true"
+                  [(value)]="orden.total_intdetord">
                 <dx-validator>
                   <dxi-validation-rule type="required" message="Total es requerido"></dxi-validation-rule>
                 </dx-validator>
@@ -88,16 +113,27 @@
           <div class="row">
             <div class="col-lg-4 col-lg-offset-4 col-md-4 col-md-offset-4 col-sm-4 col-sm-offset-4 col-xs-12">
               <dx-button
-                  text="Guardar"
-                  [useSubmitBehavior]="true"
+                  *ngIf="guardado"
+                  text="Salir"
+                  (click)="atras()"
                   class="btn boton"
                   style="float: right;">
               </dx-button>
               <dx-button
+                  *ngIf="!guardado"
+                  text="Guardar"
+                  [useSubmitBehavior]="true"
+                  class="btn boton"
+                  style="float: right;"
+                  [disabled]="guardando">
+              </dx-button>
+              <dx-button
+                  *ngIf="!guardado"
                   text="Cancelar"
                   (click)="cancelar()"
                   class="btn boton"
-                  style="float: left;">
+                  style="float: left;"
+                  [disabled]="guardando">
               </dx-button>
             </div>
           </div>

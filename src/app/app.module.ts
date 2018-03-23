@@ -3,6 +3,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app.routing';
 import { DatePipe } from '@angular/common';
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 
 import { TranslationsModule } from './translation/translation.module';
 import {TranslateHttpLoader} from '@ngx-translate/http-loader';
@@ -11,6 +13,7 @@ import {TranslateModule, TranslateLoader} from '@ngx-translate/core';
 import { AngularFontAwesomeModule } from 'angular-font-awesome';
 
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
+import { AlertModule } from 'ngx-bootstrap/alert';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
@@ -32,13 +35,22 @@ import { OrdenComponent } from './orden/orden.component';
 import { EntregaComponent } from './entrega/entrega.component';
 
 import { NavegacionProvider } from './providers/navegacion.provider';
+import { ULRProvider } from './providers/url.providers';
+import { ClienteProvider } from './providers/cliente.providers';
+import { LoginProvider } from './login/login.providers';
+import { UsuarioProvider } from './providers/usuario.providers';
+import { DashboardProvider } from './dashboard/dashboard.providers';
+import { ConsultarProvider } from './consultar/consultar.providers';
+import { CrearProvider } from './crear/crear.providers';
+import { OrdenProvider } from './orden/orden.providers';
 
 import {
           DxButtonModule,
           DxFormModule,
           DxFormComponent,
           DxTextBoxModule,
-          DxValidatorModule
+          DxValidatorModule,
+          DxSelectBoxModule
         } from 'devextreme-angular';
 
 
@@ -63,7 +75,11 @@ import {
     TranslationsModule,
     AngularFontAwesomeModule,
     AppRoutingModule,
+    DxSelectBoxModule,
+    CommonModule,
+    FormsModule,
     BsDropdownModule.forRoot(),
+    AlertModule.forRoot(),
     TranslateModule.forRoot({
       loader: {
           provide: TranslateLoader,
@@ -74,7 +90,15 @@ import {
   ],
   providers: [
     DatePipe,
-    NavegacionProvider
+    NavegacionProvider,
+    ULRProvider,
+    ClienteProvider,
+    LoginProvider,
+    UsuarioProvider,
+    DashboardProvider,
+    ConsultarProvider,
+    CrearProvider,
+    OrdenProvider
   ],
   bootstrap: [AppComponent]
 })

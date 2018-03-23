@@ -107,7 +107,7 @@ label.usuario {
 
 div.main-container{
   margin-top: 5%;
-  min-height: 400px;
+  min-height: 495px;
   background: #fff;
   border-radius: 5px;
   padding: 15px;
@@ -165,8 +165,62 @@ div.logo img {
   color: #8f8f8f;
 }
 
+.provincia {
+  background: url(../../assets/images/iconos/ICON-MAP.png);
+  background-repeat: no-repeat;
+  background-position: left;
+  background-size: 8%;
+  padding-left: 8%;
+  color: #8f8f8f;
+}
+
+.canton {
+  background: url(../../assets/images/iconos/ICON-MAP2.png);
+  background-repeat: no-repeat;
+  background-position: left;
+  background-size: 8%;
+  padding-left: 8%;
+  color: #8f8f8f;
+}
+
+.parroquia {
+  background: url(../../assets/images/iconos/ICON-PARROQ.png);
+  background-repeat: no-repeat;
+  background-position: left;
+  background-size: 8%;
+  padding-left: 8%;
+  color: #8f8f8f;
+}
+
 .direccion {
   background: url(../../assets/images/iconos/ICON-LOCA.png);
+  background-repeat: no-repeat;
+  background-position: left;
+  background-size: 8%;
+  padding-left: 8%;
+  color: #8f8f8f;
+}
+
+.cedula {
+  background: url(../../assets/images/iconos/ICON-CEDULA.png);
+  background-repeat: no-repeat;
+  background-position: left;
+  background-size: 8%;
+  padding-left: 8%;
+  color: #8f8f8f;
+}
+
+.latitud {
+  background: url(../../assets/images/iconos/ICON-LATITUDE.png);
+  background-repeat: no-repeat;
+  background-position: left;
+  background-size: 8%;
+  padding-left: 8%;
+  color: #8f8f8f;
+}
+
+.longitud {
+  background: url(../../assets/images/iconos/ICON-LONGITUD.png);
   background-repeat: no-repeat;
   background-position: left;
   background-size: 8%;
@@ -177,6 +231,28 @@ div.logo img {
 .dato {
   color: #e36220;
   padding-left: 8%;
+}
+
+button.close {
+  height: 30px;
+  width: 30px;
+  background: url(../../assets/images/iconos/ICON-CLOSE.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+button.btn.btn-block.boton {
+  margin-top: 10px;
+  height: 2.5em;
+  font-size: 0.9em;
+  font-family: Montserrat-Bold;
+  color: #124c96;
+  border: 1px solid #124c96;
+  border-radius: 5px;
+  float: right;
+  margin-left: 20px;
+  background: transparent;
 }
 
 @media (max-width:767px) {

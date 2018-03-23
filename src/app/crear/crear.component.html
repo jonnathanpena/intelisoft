@@ -14,7 +14,8 @@
               </label>
               <dx-text-box
                   class="form-control"
-                  placeholder="Código de la Finca">
+                  placeholder="Código de la Finca"
+                  [(value)]="cliente.cod_finca_intcli">
                 <dx-validator>
                   <dxi-validation-rule type="required" message="Código es requerido"></dxi-validation-rule>
                 </dx-validator>
@@ -22,18 +23,21 @@
             </div>
           </div>
 
-          <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+          <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12" style="margin-bottom: -2px;">
             <div class="form-group">
               <label class="provincia">
                 Provincia
               </label>
-              <dx-text-box
-                  class="form-control"
-                  placeholder="Provincia">
+              <dx-select-box
+                [dataSource]="provincias"
+                displayExpr="nombre_intprov"
+                valueExpr="id_intprov"
+                placeholder="Seleccione una provincia"
+                (onValueChanged)="cambioProvincia($event)">
                 <dx-validator>
                   <dxi-validation-rule type="required" message="Provincia es requerida"></dxi-validation-rule>
                 </dx-validator>
-              </dx-text-box>
+              </dx-select-box>
             </div>
           </div>
 
@@ -44,7 +48,8 @@
               </label>
               <dx-text-box
                   class="form-control"
-                  placeholder="GPS Longitud">
+                  placeholder="GPS Longitud"
+                  [(value)]="cliente.longitud_intcli">
                 <dx-validator>
                   <dxi-validation-rule type="required" message="GPS Longitud es requerida"></dxi-validation-rule>
                 </dx-validator>
@@ -59,7 +64,8 @@
               </label>
               <dx-text-box
                   class="form-control"
-                  placeholder="Nombre de la Finca">
+                  placeholder="Nombre de la Finca"
+                  [(value)]="cliente.nombre_finca_intcli">
                 <dx-validator>
                   <dxi-validation-rule type="required" message="Nombre de la finca es requerida"></dxi-validation-rule>
                 </dx-validator>
@@ -67,18 +73,21 @@
             </div>
           </div>
 
-          <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+          <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12" style="margin-bottom: -2px;">
             <div class="form-group">
               <label class="canton">
                 Cantón
               </label>
-              <dx-text-box
-                  class="form-control"
-                  placeholder="Cantón">
+              <dx-select-box
+                [dataSource]="cantones"
+                displayExpr="nombre_intcant"
+                valueExpr="id_intcant"
+                placeholder="Seleccione un cantón"
+                (onValueChanged)="cambioCanton($event)">
                 <dx-validator>
                   <dxi-validation-rule type="required" message="Cantón es requerido"></dxi-validation-rule>
                 </dx-validator>
-              </dx-text-box>
+              </dx-select-box>
             </div>
           </div>
 
@@ -89,7 +98,8 @@
               </label>
               <dx-text-box
                   class="form-control"
-                  placeholder="Teléfono">
+                  placeholder="Teléfono"
+                  [(value)]="cliente.telefono_intper">
                 <dx-validator>
                   <dxi-validation-rule type="required" message="Teléfono es requerido"></dxi-validation-rule>
                 </dx-validator>
@@ -104,7 +114,8 @@
               </label>
               <dx-text-box
                   class="form-control"
-                  placeholder="Teléfono">
+                  placeholder="Teléfono"
+                  [(value)]="cliente.apellido_intper">
                 <dx-validator>
                   <dxi-validation-rule type="required" message="Teléfono es requerido"></dxi-validation-rule>
                 </dx-validator>
@@ -119,7 +130,8 @@
               </label>
               <dx-text-box
                   class="form-control"
-                  placeholder="Parroquia">
+                  placeholder="Parroquia"
+                  [(value)]="cliente.parroquia_intper">
                 <dx-validator>
                   <dxi-validation-rule type="required" message="Parroquia es requerida"></dxi-validation-rule>
                 </dx-validator>
@@ -135,7 +147,8 @@
               <dx-text-box
                   class="form-control"
                   mode="email"
-                  placeholder="Correo">
+                  placeholder="Correo"
+                  [(value)]="cliente.correo_intper">
                 <dx-validator>
                   <dxi-validation-rule type="email"></dxi-validation-rule>
                   <dxi-validation-rule type="required" message="Correo electrónico es requerido"></dxi-validation-rule>
@@ -151,7 +164,8 @@
               </label>
               <dx-text-box
                   class="form-control"
-                  placeholder="Nombre">
+                  placeholder="Nombre"
+                  [(value)]="cliente.nombre_intper">
                 <dx-validator>
                   <dxi-validation-rule type="required" message="Nombre es requerido"></dxi-validation-rule>
                 </dx-validator>
@@ -166,7 +180,8 @@
               </label>
               <dx-text-box
                   class="form-control"
-                  placeholder="Correo">
+                  placeholder="Correo"
+                  [(value)]="cliente.direccion_intper">
                 <dx-validator>
                   <dxi-validation-rule type="required" message="Dirección es requerida"></dxi-validation-rule>
                 </dx-validator>
@@ -181,7 +196,8 @@
               </label>
               <dx-text-box
                   class="form-control"
-                  placeholder="Cédula de Identidad">
+                  placeholder="Cédula de Identidad"
+                  [(value)]="cliente.cedula_intper">
                 <dx-validator>
                   <dxi-validation-rule type="required" message="Cédula de Identidad es requerida"></dxi-validation-rule>
                 </dx-validator>
@@ -196,24 +212,10 @@
               </label>
               <dx-text-box
                   class="form-control"
-                  placeholder="GPS Latitud">
+                  placeholder="GPS Latitud"
+                  [(value)]="cliente.latitud_intcli">
                 <dx-validator>
                   <dxi-validation-rule type="required" message="GPS Latitud es requerida"></dxi-validation-rule>
-                </dx-validator>
-              </dx-text-box>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
-            <div class="form-group">
-              <label class="gps">
-                GPS Longitud
-              </label>
-              <dx-text-box
-                  class="form-control"
-                  placeholder="GPS Longitud">
-                <dx-validator>
-                  <dxi-validation-rule type="required" message="GPS Longitud es requerida"></dxi-validation-rule>
                 </dx-validator>
               </dx-text-box>
             </div>
@@ -232,7 +234,8 @@
               </label>
               <dx-text-box
                   class="form-control"
-                  placeholder="Nombre">
+                  placeholder="Nombre"
+                  [(value)]="cliente.nombre_intcon">
                 <dx-validator>
                   <dxi-validation-rule type="required" message="Nombre es requerido"></dxi-validation-rule>
                 </dx-validator>
@@ -247,7 +250,8 @@
               </label>
               <dx-text-box
                   class="form-control"
-                  placeholder="Apellido">
+                  placeholder="Apellido"
+                  [(value)]="cliente.apellido_intcon">
                 <dx-validator>
                   <dxi-validation-rule type="required" message="Apellido es requerido"></dxi-validation-rule>
                 </dx-validator>
@@ -262,7 +266,8 @@
               </label>
               <dx-text-box
                   class="form-control"
-                  placeholder="Teléfono">
+                  placeholder="Teléfono"
+                  [(value)]="cliente.telefono_intcon">
                 <dx-validator>
                   <dxi-validation-rule type="required" message="Teléfono es requerido"></dxi-validation-rule>
                 </dx-validator>
@@ -277,7 +282,8 @@
               </label>
               <dx-text-box
                   class="form-control"
-                  placeholder="Correo Electrónico">
+                  placeholder="Correo Electrónico"
+                  [(value)]="cliente.correo_intcon">
                 <dx-validator>
                   <dxi-validation-rule type="required" message="Correo Electrónico es requerido"></dxi-validation-rule>
                 </dx-validator>
@@ -290,12 +296,14 @@
               <dx-button
                   text="Guardar"
                   [useSubmitBehavior]="true"
-                  class="btn boton">
+                  class="btn boton"
+                  [disabled]="guardando">
               </dx-button>
               <dx-button
                   text="Cancelar"
                   (click)="cancelar()"
-                  class="btn boton">
+                  class="btn boton"
+                  [disabled]="guardando">
               </dx-button>
             </div>
           </div>
