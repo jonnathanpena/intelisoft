@@ -118,4 +118,34 @@ export class ULRProvider {
     return this.dominio + 'orden/insertLog.php';
   }
 
+  /*Clientes*/
+  public getAllClientes() {
+    return this.dominio + 'clientes/getAll.php';
+  }
+
+  public getClienteByCi() {
+    return this.dominio + 'clientes/getByCi.php';
+  }
+
+  /*Date precio*/
+  public getAllDataPrecio() {
+    return this.dominio + 'data_precio/getAll.php';
+  }
+
+  public getDataPrecioToday() {
+    return this.dominio + 'data_precio/getToday.php';
+  }
+
+  public getDataPrecioWeek() {
+    return this.dominio + 'data_precio/getWeek.php';
+  }
+
+  public getDataPrecioMonth() {
+    return this.dominio + 'data_precio/getMonth.php';
+  }
+
+  public getDataPrecioYear() {
+    return this.dominio + 'data_precio/getYear.php';
+  }
+
 }

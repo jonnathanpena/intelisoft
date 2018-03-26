@@ -1,10 +1,10 @@
 import { Routes } from '@angular/router';
 
-import { dataClienteComponent } from './dataCliente.component';
+import { DataClienteComponent } from './dataCliente.component';
 
 export const DataClientelRoutes: Routes = [{
   path: '',
-  component: dataClienteComponent,
+  component: DataClienteComponent,
   data: {
     heading: 'Data Cliente',
     removeFooter: true

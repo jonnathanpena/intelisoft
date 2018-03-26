@@ -11,20 +11,28 @@ export class  DataPrecioProviders {
     private urlProvider: ULRProvider) {}
 
   public getAll() {
-    return this.http.get(this.urlProvider.getAllPrecios())
+    return this.http.get(this.urlProvider.getAllDataPrecio())
       .map((res: Response) => res.json());
   }
 
-  public getUltimo() {
-    return this.http.get(this.urlProvider.getUltimoPrecio())
+  public getToday() {
+    return this.http.get(this.urlProvider.getDataPrecioToday())
       .map((res: Response) => res.json());
   }
 
-  public insertPrecio(objeto: any) {
-    return this.http.post(this.urlProvider.insertPrecioArete(), JSON.stringify(objeto), {
-      headers: new Headers({ 'Content-Type': 'application/json' })
-    })
-      .map((resp: Response) => resp);
+  public getWeek() {
+    return this.http.get(this.urlProvider.getDataPrecioWeek())
+      .map((res: Response) => res.json());
+  }
+
+  public getMonth() {
+    return this.http.get(this.urlProvider.getDataPrecioMonth())
+      .map((res: Response) => res.json());
+  }
+
+  public getYear() {
+    return this.http.get(this.urlProvider.getDataPrecioYear())
+      .map((res: Response) => res.json());
   }
 
 }

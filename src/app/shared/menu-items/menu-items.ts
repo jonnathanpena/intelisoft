@@ -56,7 +56,7 @@ const MENUITEMS = [
     name: 'Cuenta Pichincha',
     type: 'sub',
     icon: 'ecommerce-banknotes',
-    children:[
+    children: [
       {
         state: 'formulario-pago',
         name: 'Formulario de Pago'
