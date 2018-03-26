@@ -59,4 +59,63 @@ export class ULRProvider {
     return this.dominio + 'precio_arete/insert.php';
   }
 
+  /*Control Punto de Venta*/
+  public getAllLogs() {
+    return this.dominio + 'login/getAllLog.php';
+  }
+
+  public getLogsToday() {
+    return this.dominio + 'login/getLogToday.php';
+  }
+
+  public getLogsWeek() {
+    return this.dominio + 'login/getLogWeek.php';
+  }
+
+  public getLogsMonth() {
+    return this.dominio + 'login/getLogMonth.php';
+  }
+
+  public getLogsYear() {
+    return this.dominio + 'login/getLogYear.php';
+  }
+
+  /*Pagos*/
+  public insertPago() {
+    return this.dominio + 'pagos/insert.php';
+  }
+
+  public getAllPagos() {
+    return this.dominio + 'pagos/getAll.php';
+  }
+
+  public getPagosToday() {
+    return this.dominio + 'pagos/getToday.php';
+  }
+
+  public getPagosWeek() {
+    return this.dominio + 'pagos/getWeek.php';
+  }
+
+  public getPagosMonth() {
+    return this.dominio + 'pagos/getMonth.php';
+  }
+
+  public getPagosYear() {
+    return this.dominio + 'pagos/getYear.php';
+  }
+
+  /*Orden*/
+  public getOrdenById() {
+    return this.dominio + 'orden/getById.php';
+  }
+
+  public updateEstatusOrden() {
+    return this.dominio + 'orden/updateEstatus.php';
+  }
+
+  public insertLogEstatusOrden() {
+    return this.dominio + 'orden/insertLog.php';
+  }
+
 }

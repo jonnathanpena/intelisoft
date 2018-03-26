@@ -1,36 +1,87 @@
-<div class="card">
-    <div class="card-header">Formulario de Pago</div>
-    <div class="card-body">
-        <p>Formulario de pago del Banco Pichincha</p>
-        <div class="form-group row justify-content-md-center">
-            <label for="example-text-input" class="col-2 col-form-label">Cédula del Depositante</label>
-            <div class="col-4">
-                <input class="form-control" type="numeric" placeholder="1890023467" id="cedula-pago">
-            </div>
-        </div>
-        <div class="form-group row justify-content-md-center">
-            <label for="example-search-input" class="col-2 col-form-label">Nº Depósito</label>
-            <div class="col-4">
-                <input class="form-control" type="numeric" placeholder="19123987000999" id="deposito-pago">            
-            </div>
-        </div>
-        <div class="form-group row justify-content-md-center">
-            <label for="example-search-input" class="col-2 col-form-label">Orden Nº</label>
-            <div class="col-4">
-                <input class="form-control" type="numeric" placeholder="123" id="orden-pago">            
-            </div>
-        </div>
-        <div class="form-group row justify-content-md-center">
-            <label for="example-search-input" class="col-2 col-form-label">Monto</label>
-            <div class="col-4">
-                <input class="form-control" type="text" placeholder="999.99" id="monto-pago">            
-            </div>
-        </div>
-            <div class="form-group row justify-content-md-center">
-                <div class="col-2">
-                    <button type="submit" class="btn btn-primary">Registrar Pago</button>
-                </div>
-            </div>
-           
+<div class="row">
+  <div class="col-12">
+    <div *ngFor="let alert of alerts">
+      <ngb-alert [type]="alert.type" (close)="closeAlert(alert)">{{ alert.message }}</ngb-alert>
     </div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-header">Formulario de Pago</div>
+  <div class="card-body">
+    <p>Formulario de pago del Banco Pichincha</p>
+    <form novalidate (submit)="guardar($event)">
+      <div class="form-group row justify-content-md-center">
+        <label for="example-text-input" class="col-2 col-form-label">Cédula del Depositante</label>
+        <div class="col-4">
+          <dx-text-box
+              mode="number"
+              class="form-control"
+              [(value)]="pago.cedula_intpago">
+            <dx-validator>
+              <dxi-validation-rule type="required" message="Céulda es requerida"></dxi-validation-rule>
+            </dx-validator>
+          </dx-text-box>
+        </div>
+      </div>
+
+      <div class="form-group row justify-content-md-center">
+        <label for="example-text-input" class="col-2 col-form-label">Nº Depósito</label>
+        <div class="col-4">
+          <dx-text-box
+              mode="number"
+              class="form-control"
+              [(value)]="pago.num_transferencia_intpag">
+            <dx-validator>
+              <dxi-validation-rule type="required" message="Nº Depósito es requerido"></dxi-validation-rule>
+            </dx-validator>
+          </dx-text-box>
+        </div>
+      </div>
+
+      <div class="form-group row justify-content-md-center">
+        <label for="example-text-input" class="col-2 col-form-label">Nº Orden</label>
+        <div class="col-4">
+          <dx-text-box
+              mode="number"
+              class="form-control"
+              [(value)]="pago.ord_pago_id">
+            <dx-validator>
+              <dxi-validation-rule type="required" message="Nº Orden es requerida"></dxi-validation-rule>
+            </dx-validator>
+          </dx-text-box>
+        </div>
+      </div>
+
+      <div class="form-group row justify-content-md-center">
+        <label for="example-text-input" class="col-2 col-form-label">Monto</label>
+        <div class="col-4">
+          <dx-text-box
+              mode="float"
+              class="form-control"
+              [(value)]="pago.monto_intpag">
+            <dx-validator>
+              <dxi-validation-rule type="required" message="Monto es requerido"></dxi-validation-rule>
+            </dx-validator>
+          </dx-text-box>
+        </div>
+      </div>
+
+      <div class="form-group row justify-content-md-center">
+        <dx-button
+            (click)="cancelar()"
+            class="btn btn-cancelar pull-right"
+            text="Cancelar"
+            style="margin-right: 5px;"
+            [disabled]="guardando">
+        </dx-button>
+        <dx-button
+            text="Registrar"
+            class="btn btn-primary pull-right"
+            [useSubmitBehavior]="true"
+            [disabled]="guardando">
+        </dx-button>
+      </div>
+    </form>
+  </div>
 </div>

@@ -25,6 +25,31 @@ export class  PuntoVentaProviders {
       .map((res: Response) => res.json());
   }
 
+  public getAllLogs() {
+    return this.http.get(this.urlProvider.getAllLogs())
+      .map((res: Response) => res.json());
+  }
+
+  public getLogsToday() {
+    return this.http.get(this.urlProvider.getLogsToday())
+      .map((res: Response) => res.json());
+  }
+
+  public getLogsWeek() {
+    return this.http.get(this.urlProvider.getLogsWeek())
+      .map((res: Response) => res.json());
+  }
+
+  public getLogsMonth() {
+    return this.http.get(this.urlProvider.getLogsMonth())
+      .map((res: Response) => res.json());
+  }
+
+  public getLogsYear() {
+    return this.http.get(this.urlProvider.getLogsYear())
+      .map((res: Response) => res.json());
+  }
+
   public getCantonesPorProvincia(objeto: any) {
     return this.http.post(this.urlProvider.getCantonesPorProvincia(), JSON.stringify(objeto), {
       headers: new Headers({ 'Content-Type': 'application/json' })
