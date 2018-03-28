@@ -148,4 +148,9 @@ export class ULRProvider {
     return this.dominio + 'data_precio/getYear.php';
   }
 
+  /*Pendientes*/
+  public getAllPendientes() {
+    return this.dominio + 'pendientes/getAll.php';
+  }
+
 }

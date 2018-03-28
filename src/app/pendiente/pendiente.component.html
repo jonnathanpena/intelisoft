@@ -1,88 +1,54 @@
 <div class="card">
-    <div class="card-header">
-        Pendiente por Pagar
+  <div class="card-header">
+    Pendiente por Pagar
+  </div>
+  <div class="card-body">
+    <div class="row">
+      <div class="col">
+        <br>
+      </div>
     </div>
-    <div class="card-body">
-        <div class="row">
-            <div class="col">
-                <br>
-            </div>
-        </div>
-        <div class="table-responsive">
-        <table class="table table-bordered table-striped mb-0">
-            <thead>
-                <tr>
-                    <th class="date">
-                        Fecha Compra
-                    </th>
-                    <th>
-                        Nº Orden
-                    </th>   
-                    <th>
-                        Cédula
-                    </th>     
-                    <th>
-                        Cant Aretes
-                    </th>    
-                    <th>
-                        Monto Total
-                    </th>  
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td data-title="Fecha" class="date">
-                        10/03/2018
-                    </td>
-                    <td data-title="Orden">
-                        123
-                    </td>
-                    <td data-title="Cédula">
-                        1298702345
-                    </td>
-                    <td data-title="Cant Arete">
-                        100
-                    </td>
-                    <td data-title="Monto">
-                        350
-                    </td>
-                </tr>
-                <tr>
-                    <td data-title="Fecha" class="date">
-                        10/03/2018
-                    </td>
-                    <td data-title="Orden">
-                        123
-                    </td>
-                    <td data-title="Cédula">
-                        1298702345
-                    </td>
-                    <td data-title="Cant Arete">
-                        100
-                    </td>
-                    <td data-title="Monto">
-                        350
-                    </td>
-                </tr>
-                <tr>
-                    <td data-title="Fecha" class="date">
-                        10/03/2018
-                    </td>
-                    <td data-title="Orden">
-                        123
-                    </td>
-                    <td data-title="Cédula">
-                        1298702345
-                    </td>
-                    <td data-title="Cant Arete">
-                        100
-                    </td>
-                    <td data-title="Monto">
-                        350
-                    </td>
-                </tr>
-            </tbody>
-            </table>
-        </div>
+    <div class="table-responsive">
+      <table class="table table-bordered table-striped mb-0">
+        <thead>
+          <tr>
+            <th class="date">
+              Fecha Compra
+            </th>
+            <th>
+              Nº Orden
+            </th>
+            <th>
+              Cédula
+            </th>
+            <th>
+              Cant Aretes
+            </th>
+            <th>
+              Monto Total
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let pendiente of pendientes">
+            <td data-title="Fecha" class="date">
+              {{pendiente.fecha_intord}}
+            </td>
+            <td data-title="Orden">
+              {{pendiente.id_intorden}}
+            </td>
+            <td data-title="Cédula">
+              {{pendiente.cedula_intper}}
+            </td>
+            <td data-title="Cant Arete">
+              {{pendiente.cant_aretes_intdetord}}
+            </td>
+            <td data-title="Monto">
+              {{pendiente.total_intdetord}}
+            </td>
+          </tr>
+        </tbody>
+      </table>
     </div>
+  </div>
 </div>

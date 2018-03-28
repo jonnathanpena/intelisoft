@@ -3,14 +3,18 @@ import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 
 import { PendienteRoutes } from './pendiente.routing';
-import { pendienteComponent } from './pendiente.component';
+import { PendienteComponent } from './pendiente.component';
+import { PendienteProviders } from './pendiente.providers';
 
 @NgModule({
   imports: [
     CommonModule,
     RouterModule.forChild(PendienteRoutes)
   ],
-  declarations: [pendienteComponent]
+  declarations: [PendienteComponent],
+  providers: [
+    PendienteProviders
+  ]
 })
 
 export class PendienteModule {}

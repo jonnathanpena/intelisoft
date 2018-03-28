@@ -1,10 +1,10 @@
 import { Routes } from '@angular/router';
 
-import { pendienteComponent } from './pendiente.component';
+import { PendienteComponent } from './pendiente.component';
 
 export const PendienteRoutes: Routes = [{
   path: '',
-  component: pendienteComponent,
+  component: PendienteComponent,
   data: {
     heading: 'Pendiente por Pagar',
     removeFooter: true
