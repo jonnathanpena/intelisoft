@@ -1,94 +1,100 @@
+<div class="row">
+  <div class="col-12">
+    <div *ngFor="let alert of alerts">
+      <ngb-alert [type]="alert.type" (close)="closeAlert(alert)">{{ alert.message }}</ngb-alert>
+    </div>
+  </div>
+</div>
+
 <div class="card">
-    <div class="card-header">
-        ZEBRA
+  <div class="card-header">
+    ZEBRA
+  </div>
+  <div class="card-body">
+    <div class="row">
+      <div class="col-2">
+        <label for="example-text-input" class="col-form-label"><strong>Consulta</strong></label>
+      </div>
+      <div class="col-3">
+        <select _ngcontent-c7="" class="form-control" id="disabledSelect" (change)="selecciono($event)" (ngModel)="opcion">
+          <option _ngcontent-c7="" *ngFor="let opcion of opciones" [value]="opcion">{{opcion}}</option>
+        </select>
+      </div>
     </div>
-    <div class="card-body">
-        <div class="row">
-            <div class="col-2">
-                <label for="example-text-input" class="col-form-label"><strong>Consulta</strong></label>           
-            </div>
-            <div class="col-3">
-                <select _ngcontent-c7="" class="form-control" id="disabledSelect">
-                    <option _ngcontent-c7="">Día</option>
-                    <option _ngcontent-c7="">Semana</option>
-                    <option _ngcontent-c7="">Mes Actual</option>
-                    <option _ngcontent-c7="">Anual</option>                    
-                </select>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col">
-               <br>
-            </div>
-        </div>
-        <div class="table-responsive">
-            <table class="table table-bordered table-striped mb-0">
-                <thead>        
-               <tr>
-                    <th class="date">
-                        Fecha Pago
-                    </th>
-                    <th>
-                        Nº Orden
-                    </th>
-                    <th>
-                        Cédula
-                    </th>
-                    <th>
-                        Nombre
-                    </th>
-                    <th>
-                        Apellido
-                    </th>     
-                    <th>
-                        Cant Aretes
-                    </th>          
-                    <th>
-                        Archivo
-                    </th>
-                    <th>
-                        Estado
-                    </th>        
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td data-title="Fecha" class="date">
-                        10/03/2018
-                    </td>
-                    <td data-title="Orden">
-                        123
-                    </td>
-                    <td data-title="Cédula">
-                        170003456123
-                    </td>
-                    <td data-title="Nombre">
-                        Maria
-                    </td>
-                    <td data-title="Apellido">
-                        Gomez
-                    </td>
-                    <td data-title="Aretes">
-                        100
-                    </td>
-                    <td data-title="Archivo">
-                        Orden1-grabadora.txt
-                    </td>
-                    <td data-title="Estado">
-                        <div _ngcontent-c5="" class="form-check mb-2 mr-sm-2 mb-sm-0">
-                            <label _ngcontent-c5="" class="form-check-label">
-                              <input _ngcontent-c5="" class="form-check-input" type="checkbox"> Procesado
-                            </label>
-                        </div>
-                    </td>
-                </tr>
-                <tr>
-                    <td colspan="8" align="right">
-                        <button type="submit" class="btn btn-primary">Guardar</button>                                
-                    </td>                       
-                </tr>
-            </tbody>
-            </table>
-        </div>
+    <div class="row">
+      <div class="col">
+        <br>
+      </div>
     </div>
+    <div class="table-responsive">
+      <table class="table table-bordered table-striped mb-0">
+        <thead>
+          <tr>
+            <th class="date">
+              Fecha Pago
+            </th>
+            <th>
+              Nº Orden
+            </th>
+            <th>
+              Cédula
+            </th>
+            <th>
+              Nombre
+            </th>
+            <th>
+              Apellido
+            </th>
+            <th>
+              Cant Aretes
+            </th>
+            <th>
+              Archivo
+            </th>
+            <th>
+              Estado
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let pedido of pedidos">
+            <td data-title="Fecha" class="date">
+              {{pedido.fecha_intpag | date:'dd/MM/yyyy HH:mm a'}}
+            </td>
+            <td data-title="Orden">
+              {{pedido.ord_detimp_id}}
+            </td>
+            <td data-title="Cédula">
+              {{pedido.cedula_intper}}
+            </td>
+            <td data-title="Nombre">
+              {{pedido.nombre_intper}}
+            </td>
+            <td data-title="Apellido">
+              {{pedido.apellido_intper}}
+            </td>
+            <td data-title="Aretes">
+              {{pedido.cant_aretes_intdetord}}
+            </td>
+            <td data-title="Archivo">
+              {{pedido.archivo_detimp}}
+            </td>
+            <td data-title="Estado">
+              <div _ngcontent-c5="" class="form-check mb-2 mr-sm-2 mb-sm-0">
+                <label _ngcontent-c5="" class="form-check-label" >
+                  <input _ngcontent-c5="" class="form-check-input"
+                      type="checkbox" (click)="cambiarEstatus(pedido)"> Procesado
+                </label>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td colspan="8" align="right">
+              <button type="submit" class="btn btn-primary" (click)="guardar()" [disabled]="guardando">Guardar</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
 </div>

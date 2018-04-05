@@ -4,7 +4,7 @@ import { CuentaPichinchaProviders } from '../cuentaPichincha.providers';
 import { DatePipe } from '@angular/common';
 
 @Component({
-  selector: 'app-listarPagos',
+  selector: 'app-listarpagos',
   templateUrl: './listarPagos.component.html',
   styleUrls: ['./listarPagos.component.scss']
 })

@@ -9,10 +9,13 @@ import { ZebraComponent } from './zebra/zebra.component';
 
 import { EnvioImpresoraProviders } from './envioImpresora.providers';
 
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+
 @NgModule({
   imports: [
     CommonModule,
-    RouterModule.forChild(EnvioImpresoraRoutes)
+    RouterModule.forChild(EnvioImpresoraRoutes),
+    NgbModule
   ],
   declarations: [GrabadoraComponent, ImpresoraComponent, ZebraComponent],
   providers: [

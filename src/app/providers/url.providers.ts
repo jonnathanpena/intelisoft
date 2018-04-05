@@ -153,4 +153,92 @@ export class ULRProvider {
     return this.dominio + 'pendientes/getAll.php';
   }
 
+  /*Impresoras*/
+  public getAllZebra() {
+    return this.dominio + 'impresoras/getAllZebra.php';
+  }
+
+  public getZebraToday() {
+    return this.dominio + 'impresoras/getZebraToday.php';
+  }
+
+  public getZebraWeek() {
+    return this.dominio + 'impresoras/getZebraWeek.php';
+  }
+
+  public getZebraMonth() {
+    return this.dominio + 'impresoras/getZebraMonth.php';
+  }
+
+  public getZebraYear() {
+    return this.dominio + 'impresoras/getZebraYear.php';
+  }
+
+  public getAllGrabadora() {
+    return this.dominio + 'impresoras/getAllGrabadora.php';
+  }
+
+  public getGrabadoraToday() {
+    return this.dominio + 'impresoras/getGrabadoraToday.php';
+  }
+
+  public getGrabadoraWeek() {
+    return this.dominio + 'impresoras/getGrabadoraWeek.php';
+  }
+
+  public getGrabadoraMonth() {
+    return this.dominio + 'impresoras/getGrabadoraMonth.php';
+  }
+
+  public getGrabadoraYear() {
+    return this.dominio + 'impresoras/getGrabadoraYear.php';
+  }
+
+  public getAllImpresora() {
+    return this.dominio + 'impresoras/getAllImpresora.php';
+  }
+
+  public getImpresoraToday() {
+    return this.dominio + 'impresoras/getImpresoraToday.php';
+  }
+
+  public getImpresoraWeek() {
+    return this.dominio + 'impresoras/getImpresoraWeek.php';
+  }
+
+  public getImpresoraMonth() {
+    return this.dominio + 'impresoras/getImpresoraMonth.php';
+  }
+
+  public getImpresoraYear() {
+    return this.dominio + 'impresoras/getImpresoraYear.php';
+  }
+
+  public getAllBones() {
+    return this.dominio + 'impresoras/getAllBones.php';
+  }
+
+  public getBonesToday() {
+    return this.dominio + 'impresoras/getBonesToday.php';
+  }
+
+  public getBonesWeek() {
+    return this.dominio + 'impresoras/getBonesWeek.php';
+  }
+
+  public getBonesMonth() {
+    return this.dominio + 'impresoras/getBonesMonth.php';
+  }
+
+  public getBonesYear() {
+    return this.dominio + 'impresoras/getBonesYear.php';
+  }
+
+  public updateImpresora() {
+    return this.dominio + 'impresoras/updateImpresora.php';
+  }
+
+  public updateBones() {
+    return this.dominio + 'impresoras/updateBones.php';
+  }
 }
