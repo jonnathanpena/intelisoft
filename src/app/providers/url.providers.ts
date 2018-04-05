@@ -241,4 +241,10 @@ export class ULRProvider {
   public updateBones() {
     return this.dominio + 'impresoras/updateBones.php';
   }
+
+  /*detalle_sifa*/
+  public updateDespacho() {
+    return this.dominio + 'detalle_sifae/updateDespacho.php';
+  }
+
 }
