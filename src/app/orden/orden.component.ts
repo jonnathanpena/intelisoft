@@ -65,13 +65,12 @@ export class OrdenComponent implements OnInit {
   }
 
   insertLog(orden, estatus) {
-    this.service.insertLogOrden(
-      {
-        orden_intlogs_ord: orden,
-        estatus_intlogs_ord: estatus,
-        usuario_intlogs_ord: this.usuario.usuario.id_intusuario
-      }
-    ).subscribe(resp => {
+    const insertar = {
+      orden_intlogs_ord: orden,
+      estatus_intlogs_ord: estatus,
+      usuario_intlogs_ord: this.usuario.usuario.id_intusuario
+    };
+    this.service.insertLogOrden(insertar).subscribe(resp => {
       if (resp['_body'] === 'false') {
         this.alert.texto = '¡Ha ocurrido un error, por favor póngase en contacto con el administrador del sistema!';
         this.alert.tipo = 'error';
