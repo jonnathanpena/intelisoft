@@ -53,75 +53,87 @@ export class FormularioPagoComponent implements OnInit {
       }
     ).subscribe(resp => {
       const orden = JSON.parse(resp['_body']);
-      if (orden.data.length > 0) {
-        switch (orden.data[0].estatus_intord_id) {
-          case 1:
-            this.alerts.push({
-              id: 2,
-              type: 'warning',
-              message: '¡Esta orden apenas ha sido tomada, no se ha realizado el pedido por completo!'
-            });
-            this.guardando = false;
-            break;
+      const total = orden.data[0].total_intdetord;
+      const paga = this.pago.monto_intpag * 1;
+      const resta = paga - total;
+      if (resta >= -1) {
+        if (orden.data.length > 0) {
+          switch (orden.data[0].estatus_intord_id) {
+            case 1:
+              this.alerts.push({
+                id: 2,
+                type: 'warning',
+                message: '¡Esta orden apenas ha sido tomada, no se ha realizado el pedido por completo!'
+              });
+              this.guardando = false;
+              break;
 
-          case 2:
-            this.insertar();
-            break;
+            case 2:
+              this.insertar();
+              break;
 
-          case 3:
-            this.alerts.push({
-              id: 2,
-              type: 'warning',
-              message: '¡Esta orden ya ha sido pagada!'
-            });
-            this.guardando = false;
-            break;
+            case 3:
+              this.alerts.push({
+                id: 2,
+                type: 'warning',
+                message: '¡Esta orden ya ha sido pagada!'
+              });
+              this.guardando = false;
+              break;
 
-          case 4:
-            this.alerts.push({
-              id: 2,
-              type: 'warning',
-              message: '¡Esta orden ha sido cancelada!'
-            });
-            this.guardando = false;
-            break;
+            case 4:
+              this.alerts.push({
+                id: 2,
+                type: 'warning',
+                message: '¡Esta orden ha sido cancelada!'
+              });
+              this.guardando = false;
+              break;
 
-          case 5:
-            this.alerts.push({
-              id: 2,
-              type: 'warning',
-              message: '¡Esta orden ha sido anulada!'
-            });
-            this.guardando = false;
-            break;
+            case 5:
+              this.alerts.push({
+                id: 2,
+                type: 'warning',
+                message: '¡Esta orden ha sido anulada!'
+              });
+              this.guardando = false;
+              break;
 
-          case 6:
-            this.alerts.push({
-              id: 2,
-              type: 'warning',
-              message: '¡Esta orden ha sido despachada!'
-            });
-            this.guardando = false;
-            break;
+            case 6:
+              this.alerts.push({
+                id: 2,
+                type: 'warning',
+                message: '¡Esta orden ha sido despachada!'
+              });
+              this.guardando = false;
+              break;
 
-          case 7:
-            this.alerts.push({
-              id: 2,
-              type: 'warning',
-              message: '¡Esta orden ha sido entregada!'
-            });
-            this.guardando = false;
-            break;
+            case 7:
+              this.alerts.push({
+                id: 2,
+                type: 'warning',
+                message: '¡Esta orden ha sido entregada!'
+              });
+              this.guardando = false;
+              break;
+          }
+        } else {
+          this.alerts.push({
+            id: 2,
+            type: 'warning',
+            message: '¡No existe este número de orden, por favor, intente con otro!'
+          });
+          this.guardando = false;
         }
+        this.backup = this.alerts.map((alert: IAlert) => Object.assign({}, alert));
       } else {
         this.alerts.push({
           id: 2,
           type: 'warning',
-          message: '¡No existe este número de orden, por favor, intente con otro!'
+          message: '¡Saldo insuficiente para cancelar $' + orden.data[0].total_intdetord + '!'
         });
         this.guardando = false;
       }
-      this.backup = this.alerts.map((alert: IAlert) => Object.assign({}, alert));
     });
   }
 
