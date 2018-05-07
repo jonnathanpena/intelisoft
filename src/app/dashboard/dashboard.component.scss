@@ -1,10 +1,23 @@
 .line-container {
-  height: 300px;
-  width: 100%;
-  display: block;
+    height: 300px;
+    width: 100%;
+    display: block;
 }
+
 .gauge-container {
-  height: 300px;
-  width: 100%;
-  display: block;
+    height: 300px;
+    width: 100%;
+    display: block;
+}
+
+/deep/ dx-select-box div.dx-dropdowneditor-input-wrapper.dx-selectbox-container div.dx-texteditor-container input {
+    background: #928f91;
+}
+
+/deep/ dx-select-box div.dx-dropdowneditor-input-wrapper.dx-selectbox-container div.dx-texteditor-container div.dx-placeholder {
+    color: rgba(0, 0, 0, 0.87);
+}
+
+/deep/ dx-date-box div.dx-dropdowneditor-input-wrapper div.dx-texteditor-container input {
+    background: #928f91;
 }

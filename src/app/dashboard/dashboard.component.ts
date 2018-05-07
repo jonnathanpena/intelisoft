@@ -1,10 +1,11 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import * as shape from 'd3-shape';
 import { colorSets  } from '@swimlane/ngx-charts/release/utils/color-sets';
 import {
   single,
   generateData
 } from '../shared/chartData';
+import { DashboardProviders } from './dashboard.providers';
 
 @Component({
   selector: 'app-dashboard',
@@ -12,7 +13,12 @@ import {
   styleUrls: ['./dashboard.component.scss']
 })
 
-export class DashboardComponent {
+export class DashboardComponent implements OnInit {
+  cantidadUsuariosPV: any;
+  cantidadImpresoras: any;
+  cantidadBones: any;
+  cantidadClientes: any;
+  provincias: any = [];
   single: any[];
   graph: {
     links: any[],
@@ -26,9 +32,9 @@ export class DashboardComponent {
   showLegend = false;
   showXAxisLabel = false;
   tooltipDisabled = false;
-  xAxisLabel = 'Country';
+  xAxisLabel = 'Provincia';
   showYAxisLabel = false;
-  yAxisLabel = 'GDP Per Capita';
+  yAxisLabel = 'Ventas Por Provincia';
   showGridLines = true;
   roundDomains = false;
   colorScheme = {
@@ -60,11 +66,33 @@ export class DashboardComponent {
   gaugeValue = 50; // linear gauge value
   gaugePreviousValue = 70;
 
-  constructor() {
+  constructor(private service: DashboardProviders) {
     Object.assign(this, {
       single
     });
     this.dateData = generateData(5, false);
+    console.log('data grafica', this.dateData);
+  }
+
+  ngOnInit() {
+    this.service.getUsuarios().subscribe(resp => {
+      this.cantidadUsuariosPV = resp.data[0].cantidad;
+    });
+    this.service.getImpresoras().subscribe(resp => {
+      this.cantidadImpresoras = resp.data[0].cantidad;
+    });
+    this.service.getBones().subscribe( resp => {
+      this.cantidadBones = resp.data[0].cantidad;
+    });
+    this.service.getClientes().subscribe(resp => {
+      this.cantidadClientes = resp.data[0].cantidad;
+    });
+    this.service.getAllProvincias().subscribe( resp => {
+      this.provincias = resp.data;
+    });
+    this.service.getGraficaInit().subscribe(resp => {
+      this.dateData = resp.data;
+    });
   }
 
   select(data) {

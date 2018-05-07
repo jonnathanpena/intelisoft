@@ -57,6 +57,34 @@ export class  CuentaPichinchaProviders {
       .map((resp: Response) => resp);
   }
 
+  public insertSueltos(objeto: any) {
+    return this.http.post(this.urlProvider.insertSueltos(), JSON.stringify(objeto), {
+      headers: new Headers({ 'Content-Type': 'application/json' })
+    })
+      .map((resp: Response) => resp);
+  }
+
+  public insertApiSifae(objeto: any) {
+    return this.http.post(this.urlProvider.insertApiSifae(), JSON.stringify(objeto), {
+      headers: new Headers({ 'Content-Type': 'application/json' })
+    })
+      .map((resp: Response) => resp);
+  }
+
+  public insertDetalleSifae(objeto: any) {
+    return this.http.post(this.urlProvider.insertDetalleSifae(), JSON.stringify(objeto), {
+      headers: new Headers({ 'Content-Type': 'application/json' })
+    })
+      .map((resp: Response) => resp);
+  }
+
+  public insertDetalleImpresoraBones(objeto: any) {
+    return this.http.post(this.urlProvider.insertDetalleImpresorasBones(), JSON.stringify(objeto), {
+      headers: new Headers({ 'Content-Type': 'application/json' })
+    })
+      .map((resp: Response) => resp);
+  }
+
   public updateEstatusOrden(objeto: any) {
     return this.http.post(this.urlProvider.updateEstatusOrden(), JSON.stringify(objeto), {
       headers: new Headers({ 'Content-Type': 'application/json' })

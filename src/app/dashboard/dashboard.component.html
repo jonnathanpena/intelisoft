@@ -1,129 +1,97 @@
 <div class="row">
-  <div class="col-sm-6 col-md-3">
-    <div class="card card-body card-widget">
-      <div class="widget-icon rounded-circle bg-green text-white icon icon-basic-headset">
-      </div>
-      <div class="block ml-3 mr-3">
-        <h5 class="mb-0 fw-400">
-          90
-        </h5>
-        <small class="text-muted text-uppercase ">
+    <div class="col-sm-6 col-md-3">
+        <div class="card card-body card-widget">
+            <div class="widget-icon rounded-circle bg-green text-white icon icon-basic-headset">
+            </div>
+            <div class="block ml-3 mr-3">
+                <h5 class="mb-0 fw-400">
+                    {{cantidadUsuariosPV}}
+                </h5>
+                <small class="text-muted text-uppercase ">
           <strong>Usuarios PV</strong>
         </small>
-      </div>
-    </div>
-  </div>
-  <div class="col-sm-6 col-md-3">
-    <div class="card card-body card-widget">
-      <div class="widget-icon rounded-circle bg-blue text-white icon icon-basic-server2">
-      </div>
-      <div class="block ml-3 mr-3">
-        <h5 class="mb-0 fw-400">
-          30
-        </h5>
-        <small class="text-muted text-uppercase ">
-          <strong>Impresoras</strong>
-        </small>
-      </div>
-    </div>
-  </div>
-  <div class="col-sm-6 col-md-3">
-    <div class="card card-body card-widget">
-      <div class="widget-icon rounded-circle bg-teal text-white icon icon-basic-magic-mouse">
-      </div>
-      <div class="block ml-3 mr-3">
-        <h5 class="mb-0 fw-400">
-          10
-        </h5>
-        <small class="text-muted text-uppercase ">
-          <strong>Bones</strong>
-        </small>
-      </div>
-    </div>
-  </div>
-  <div class="col-sm-6 col-md-3">
-    <div class="card card-body card-widget">
-      <div class="widget-icon rounded-circle bg-red text-white icon icon-ecommerce-bag">
-      </div>
-      <div class="block ml-3 mr-3">
-        <h5 class="mb-0 fw-400">
-          100
-        </h5>
-        <small class="text-muted text-uppercase ">
-          <strong>Clientes</strong>
-        </small>
-      </div>
-    </div>
-  </div>
-</div>
-<div class="row">
-  <div class="col-lg-12">
-    <div class="card">
-      <div class="card-header no-shadow">
-        <div class="card-header-text w-100">
-          <div class="card-title">
-            Estadística por grupo Punto de Venta
-          </div>
-            <div class="card-subtitle text-capitalize ff-sans">
-              Precios agrupado por Provincia
-            </div>
-            <div class="row">
-              <label for="example-text-input" class="col-2 col-form-label">Consulta</label>                
-              <div class="col-3">
-                <select _ngcontent-c7="" class="form-control" id="disabledSelect">
-                  <option _ngcontent-c7="">Seleccione Provincia</option>
-                  <option _ngcontent-c7="">Azuay</option>
-                  <option _ngcontent-c7="">Bolívar</option>
-                  <option _ngcontent-c7="">Cañar</option>                    
-                  <option _ngcontent-c7="">Carchi</option>                    
-                  <option _ngcontent-c7="">Chimborazo</option>                    
-                  <option _ngcontent-c7="">Cotopaxi</option>                    
-                  <option _ngcontent-c7="">El Oro</option>                    
-                  <option _ngcontent-c7="">Esmeraldas</option>                    
-                  <option _ngcontent-c7="">Galápagos</option>                    
-                  <option _ngcontent-c7="">Guayas</option>                    
-                  <option _ngcontent-c7="">Imbabura</option>                    
-                  <option _ngcontent-c7="">Loja</option>                    
-                  <option _ngcontent-c7="">Los Ríos</option>                    
-                  <option _ngcontent-c7="">Manabí</option>                    
-                  <option _ngcontent-c7="">Morona Santiago</option>                    
-                  <option _ngcontent-c7="">Napo</option>                    
-                  <option _ngcontent-c7="">Orellana</option>                    
-                  <option _ngcontent-c7="">Pastaza</option>                    
-                  <option _ngcontent-c7="">Pichincha</option>                    
-                  <option _ngcontent-c7="">Santa Elena</option>                    
-                  <option _ngcontent-c7="">Santo Domingo de los Tsáchilas</option>                    
-                  <option _ngcontent-c7="">Sucumbíos</option>                    
-                  <option _ngcontent-c7="">Tungurahua</option>                    
-                  <option _ngcontent-c7="">Zamora Chinchipe</option>                    
-                </select>
-              </div>
-              <label for="example-text-input" class="col-1 col-form-label">Desde</label>                
-              <div class="col-2">
-                  <input class="form-control" type="date" placeholder="dd/mm/aaaa" id="desde-pv">
-              </div> 
-              <label for="example-text-input" class="col-1 col-form-label">Hasta</label>                
-              <div class="col-2">
-                  <input class="form-control" type="date" placeholder="dd/mm/aaaa" id="hasta-pv">
-              </div>  
-            </div>
-            <div class="row">
-              <label for="example-text-input" class="col-2 col-form-label">Consulta</label>                                
-              <div class="col-3">
-                <select _ngcontent-c7="" class="form-control" id="disabledSelect">
-                  <option _ngcontent-c7="">Día</option>
-                  <option _ngcontent-c7="">Semana</option>
-                  <option _ngcontent-c7="">Mes Actual</option>
-                  <option _ngcontent-c7="">Anual</option>                    
-                </select>
-              </div>
             </div>
         </div>
-      </div>
-      <div class="mb-1">
-        <ngx-charts-area-chart-stacked (legendlabelclick)="onLegendLabelClick($event)" (select)="select($event)" [curve]="curve" [gradient]="gradient" [legend]="showLegend" [results]="dateData" [roundDomains]="roundDomains" [scheme]="colorScheme" [schemeType]="schemeType" [showGridLines]="showGridLines" [showXAxisLabel]="showXAxisLabel" [showYAxisLabel]="showYAxisLabel" [timeline]="timeline" [tooltipDisabled]="tooltipDisabled" [xAxis]="showXAxis" [xAxisLabel]="xAxisLabel" [yAxis]="showYAxis" [yAxisLabel]="yAxisLabel" class="line-container">
-        </ngx-charts-area-chart-stacked>
-      </div>
     </div>
-  </div>
+    <div class="col-sm-6 col-md-3">
+        <div class="card card-body card-widget">
+            <div class="widget-icon rounded-circle bg-blue text-white icon icon-basic-server2">
+            </div>
+            <div class="block ml-3 mr-3">
+                <h5 class="mb-0 fw-400">
+                    {{cantidadImpresoras}}
+                </h5>
+                <small class="text-muted text-uppercase ">
+          <strong>Impresoras</strong>
+        </small>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-6 col-md-3">
+        <div class="card card-body card-widget">
+            <div class="widget-icon rounded-circle bg-teal text-white icon icon-basic-magic-mouse">
+            </div>
+            <div class="block ml-3 mr-3">
+                <h5 class="mb-0 fw-400">
+                    {{cantidadBones}}
+                </h5>
+                <small class="text-muted text-uppercase ">
+          <strong>Bones</strong>
+        </small>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-6 col-md-3">
+        <div class="card card-body card-widget">
+            <div class="widget-icon rounded-circle bg-red text-white icon icon-ecommerce-bag">
+            </div>
+            <div class="block ml-3 mr-3">
+                <h5 class="mb-0 fw-400">
+                    {{cantidadClientes}}
+                </h5>
+                <small class="text-muted text-uppercase ">
+          <strong>Clientes</strong>
+        </small>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-lg-12">
+        <div class="card">
+            <div class="card-header no-shadow">
+                <div class="card-header-text w-100">
+                    <div class="card-title">
+                        Estadística por grupo Punto de Venta
+                    </div>
+                    <div class="card-subtitle text-capitalize ff-sans">
+                        Precios agrupado por Provincia
+                    </div>
+                    <div class="row">
+                        <label for="example-text-input" class="col-2 col-form-label">Consulta</label>
+                        <div class="col-3">
+                            <dx-select-box [items]="provincias" displayExpr="nombre_intprov" valueExpr="id_intprov" [searchEnabled]="true" placeholder="Seleccione una provincia">
+                            </dx-select-box>
+                        </div>
+                        <label for="example-text-input" class="col-1 col-form-label" style="text-align: right;">Desde</label>
+                        <div class="col-2">
+                            <dx-date-box type="date" style="width: 100%;">
+                            </dx-date-box>
+                        </div>
+                        <label for="example-text-input" class="col-1 col-form-label" style="text-align: right;">Hasta</label>
+                        <div class="col-2">
+                            <dx-date-box type="date" style="width: 100%;">
+                            </dx-date-box>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="mb-1">
+                <ngx-charts-area-chart-stacked (legendlabelclick)="onLegendLabelClick($event)" (select)="select($event)" [curve]="curve" [gradient]="gradient" [legend]="showLegend" [results]="dateData" [roundDomains]="roundDomains" [scheme]="colorScheme" [schemeType]="schemeType"
+                    [showGridLines]="showGridLines" [showXAxisLabel]="showXAxisLabel" [showYAxisLabel]="showYAxisLabel" [timeline]="timeline" [tooltipDisabled]="tooltipDisabled" [xAxis]="showXAxis" [xAxisLabel]="xAxisLabel" [yAxis]="showYAxis" [yAxisLabel]="yAxisLabel"
+                    class="line-container">
+                </ngx-charts-area-chart-stacked>
+            </div>
+        </div>
+    </div>
 </div>

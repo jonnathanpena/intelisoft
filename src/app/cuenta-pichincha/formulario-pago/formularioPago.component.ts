@@ -20,6 +20,7 @@ export class FormularioPagoComponent implements OnInit {
   private backup: Array<IAlert>;
   guardando: boolean;
   pago: any = {};
+  orden: any;
 
   constructor(
     private service: CuentaPichinchaProviders
@@ -54,6 +55,7 @@ export class FormularioPagoComponent implements OnInit {
     ).subscribe(resp => {
       const orden = JSON.parse(resp['_body']);
       const total = orden.data[0].total_intdetord;
+      this.orden = orden.data[0];
       const paga = this.pago.monto_intpag * 1;
       const resta = paga - total;
       if (resta >= -1) {
@@ -69,12 +71,12 @@ export class FormularioPagoComponent implements OnInit {
               break;
 
             case 2:
-              this.insertar();
+              this.insertSueltos(resta, this.orden);
               break;
 
             case 3:
               this.alerts.push({
-                id: 2,
+                id: 3,
                 type: 'warning',
                 message: '¡Esta orden ya ha sido pagada!'
               });
@@ -83,7 +85,7 @@ export class FormularioPagoComponent implements OnInit {
 
             case 4:
               this.alerts.push({
-                id: 2,
+                id: 4,
                 type: 'warning',
                 message: '¡Esta orden ha sido cancelada!'
               });
@@ -92,7 +94,7 @@ export class FormularioPagoComponent implements OnInit {
 
             case 5:
               this.alerts.push({
-                id: 2,
+                id: 5,
                 type: 'warning',
                 message: '¡Esta orden ha sido anulada!'
               });
@@ -101,7 +103,7 @@ export class FormularioPagoComponent implements OnInit {
 
             case 6:
               this.alerts.push({
-                id: 2,
+                id: 6,
                 type: 'warning',
                 message: '¡Esta orden ha sido despachada!'
               });
@@ -110,7 +112,7 @@ export class FormularioPagoComponent implements OnInit {
 
             case 7:
               this.alerts.push({
-                id: 2,
+                id: 7,
                 type: 'warning',
                 message: '¡Esta orden ha sido entregada!'
               });
@@ -119,7 +121,7 @@ export class FormularioPagoComponent implements OnInit {
           }
         } else {
           this.alerts.push({
-            id: 2,
+            id: 8,
             type: 'warning',
             message: '¡No existe este número de orden, por favor, intente con otro!'
           });
@@ -128,7 +130,7 @@ export class FormularioPagoComponent implements OnInit {
         this.backup = this.alerts.map((alert: IAlert) => Object.assign({}, alert));
       } else {
         this.alerts.push({
-          id: 2,
+          id: 9,
           type: 'warning',
           message: '¡Saldo insuficiente para cancelar $' + orden.data[0].total_intdetord + '!'
         });
@@ -143,7 +145,7 @@ export class FormularioPagoComponent implements OnInit {
         this.modificarEstatusPedido();
       } else {
         this.alerts.push({
-          id: 2,
+          id: 10,
           type: 'warning',
           message: '¡Ooops! Algo ocurrió mal'
         });
@@ -164,7 +166,7 @@ export class FormularioPagoComponent implements OnInit {
         this.insertLogOrden();
       } else {
         this.alerts.push({
-          id: 2,
+          id: 11,
           type: 'warning',
           message: '¡Ooops! Algo ocurrió mal'
         });
@@ -185,14 +187,14 @@ export class FormularioPagoComponent implements OnInit {
       this.guardando = false;
       if (resp['_body'] === 'true') {
         this.alerts.push({
-          id: 1,
+          id: 12,
           type: 'success',
           message: '¡Pago agregado exitosamente!'
         });
         this.ngOnInit();
       } else {
         this.alerts.push({
-          id: 2,
+          id: 13,
           type: 'warning',
           message: '¡Ooops! Algo ocurrió mal'
         });
@@ -200,6 +202,123 @@ export class FormularioPagoComponent implements OnInit {
       this.backup = this.alerts.map((alert: IAlert) => Object.assign({}, alert));
     });
   }
+
+  insertSueltos(sueltos, orden) {
+    this.service.insertSueltos(
+      {
+        ord_id_intsue: this.pago.ord_pago_id,
+        sueltos_intsue: sueltos
+      }
+    ).subscribe(resp => {
+      if (resp['_body'] === 'false') {
+        this.alerts.push({
+          id: 14,
+          type: 'warning',
+          message: '¡Ooops! Algo ocurrió mal'
+        });
+        this.backup = this.alerts.map((alert: IAlert) => Object.assign({}, alert));
+      } else {
+        this.insertApiSifae(orden);
+      }
+    });
+  }
+
+  insertApiSifae(orden) {
+    this.service.insertApiSifae(
+      {
+        codigo_fin: orden.cod_finca_intcli,
+        proveedor: 'intelitag',
+        usuario: 'intelitag',
+        cant_aretes: orden.cant_aretes_intdetord
+      }
+    ).subscribe(resp => {
+      console.log('insert api sifae', resp);
+      if (resp['_body'] === 'false') {
+        this.alerts.push({
+          id: 15,
+          type: 'warning',
+          message: '¡Ooops! Algo ocurrió mal'
+        });
+        this.backup = this.alerts.map((alert: IAlert) => Object.assign({}, alert));
+      } else {
+        const enviar = JSON.parse(resp['_body']);
+        this.insertDetalleSifae(orden, enviar);
+      }
+    });
+  }
+
+  insertDetalleSifae(orden, detalle) {
+    this.service.insertDetalleSifae(
+      {
+        ord_detsif_id: this.pago.ord_pago_id,
+        serial_desde_intdetsif: detalle.desde,
+        serial_hasta_intdetsif: detalle.hasta,
+        despacho_intdetsif: 0,
+        entrega_intdetsif: 0,
+        asignacion_sifae_id_intdetsif: detalle.id
+      }
+    ).subscribe(resp => {
+      if (resp['_body'] === 'false') {
+        this.alerts.push({
+          id: 16,
+          type: 'warning',
+          message: '¡Ooops! Algo ocurrió mal'
+        });
+        this.backup = this.alerts.map((alert: IAlert) => Object.assign({}, alert));
+      } else {
+        const enviar = JSON.parse(resp['_body']);
+        this.insertDetalleImpresoraBones(enviar);
+      }
+    });
+  }
+
+  insertDetalleImpresoraBones(detalles) {
+    for (let i = 1; i < 5; i++) {
+      let data = {};
+      if (i === 4) {
+        data = {
+          ord_detimp_id: this.pago.ord_pago_id,
+          imp_detimp_id: 'NULL',
+          archivo_detimp: 'NULL',
+          bones_detimp_id: detalles.archivo,
+          procesado_imp_detimp: 0,
+          procesado_bones_detimp: 0
+        };
+        this.service.insertDetalleImpresoraBones(data).subscribe(resp => {
+          if (resp['_body'] === 'false') {
+            this.alerts.push({
+              id: 17,
+              type: 'warning',
+              message: '¡Ooops! Algo ocurrió mal'
+            });
+            this.backup = this.alerts.map((alert: IAlert) => Object.assign({}, alert));
+          } else {
+            this.insertar();
+          }
+        });
+      } else {
+        data = {
+          ord_detimp_id: this.pago.ord_pago_id,
+          imp_detimp_id: i,
+          archivo_detimp: detalles.archivo,
+          bones_detimp_id: '',
+          procesado_imp_detimp: 0,
+          procesado_bones_detimp: 0
+        };
+        this.service.insertDetalleImpresoraBones(data).subscribe(resp => {
+          if (resp['_body'] === 'false') {
+            this.alerts.push({
+              id: 17,
+              type: 'warning',
+              message: '¡Ooops! Algo ocurrió mal'
+            });
+            this.backup = this.alerts.map((alert: IAlert) => Object.assign({}, alert));
+          }
+        });
+      }
+    }
+  }
+
 
   cancelar() {
     this.ngOnInit();

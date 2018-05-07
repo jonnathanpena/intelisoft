@@ -243,8 +243,48 @@ export class ULRProvider {
   }
 
   /*detalle_sifa*/
+  public insertDetalleSifae() {
+    return this.dominio + 'detalle_sifae/insert.php';
+  }
+
   public updateDespacho() {
     return this.dominio + 'detalle_sifae/updateDespacho.php';
+  }
+
+  /*Dashboard*/
+  public getUsuariosPV() {
+    return this.dominio + 'dashboard/getUsuarios.php';
+  }
+
+  public getImpresoras() {
+    return this.dominio + 'dashboard/getImpresoras.php';
+  }
+
+  public getBones() {
+    return this.dominio + 'dashboard/getBones.php';
+  }
+
+  public getCantidadClientes() {
+    return this.dominio + 'dashboard/getClientes.php';
+  }
+
+  public getGraficaInit() {
+    return this.dominio + 'dashboard/getGraficaInit.php';
+  }
+
+  /*sueltos*/
+  public insertSueltos() {
+    return this.dominio + 'sueltos/insert.php';
+  }
+
+  /*api_sifae*/
+  public insertApiSifae() {
+    return this.dominio + 'api_sifae/insert.php';
+  }
+
+  /* detalle_impresora_bones */
+  public insertDetalleImpresorasBones() {
+    return this.dominio + 'detalle_impresora_bones/insert.php';
   }
 
 }
