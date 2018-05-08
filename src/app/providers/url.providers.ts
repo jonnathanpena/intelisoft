@@ -277,6 +277,14 @@ export class ULRProvider {
     return this.dominio + 'sueltos/insert.php';
   }
 
+  public getAllSueltos() {
+    return this.dominio + 'sueltos/getAll.php';
+  }
+
+  public deleteSueltos() {
+    return this.dominio + 'sueltos/delete.php';
+  }
+
   /*api_sifae*/
   public insertApiSifae() {
     return this.dominio + 'api_sifae/insert.php';

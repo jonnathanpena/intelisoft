@@ -1,77 +1,71 @@
-<div class="card">
-        <div class="card-header">
-            Sueltos Restantes
+<div class="row">
+    <div class="col-12">
+        <div *ngFor="let alert of alerts">
+            <ngb-alert [type]="alert.type" (close)="closeAlert(alert)">{{ alert.message }}</ngb-alert>
         </div>
-        <div class="card-body">
-            <div class="table-responsive">
-                <div class="row">
-                    <div class="col-lg-12 col-sm-6 col-md-3">
-                        <div class="card card-body card-widget">
-                            <div class="widget-icon rounded-circle bg-green text-white icon icon-ecommerce-banknote">
-                            </div>
-                            <div class="block ml-3 mr-3">
-                                <h5 class="mb-0 fw-400">
-                                    0.40
-                                </h5>
-                                <small class="text-muted text-uppercase ">
+    </div>
+</div>
+
+<div class="card">
+    <div class="card-header">
+        Sueltos Restantes
+    </div>
+    <div class="card-body">
+        <div class="table-responsive">
+            <div class="row">
+                <div class="col-lg-12 col-sm-6 col-md-3">
+                    <div class="card card-body card-widget">
+                        <div class="widget-icon rounded-circle bg-green text-white icon icon-ecommerce-banknote">
+                        </div>
+                        <div class="block ml-3 mr-3">
+                            <h5 class="mb-0 fw-400">
+                                {{suma}}
+                            </h5>
+                            <small class="text-muted text-uppercase ">
                                     <strong>Sueltos</strong>
                                 </small>
-                            </div>
                         </div>
                     </div>
                 </div>
-                <table class="table table-bordered table-striped mb-0">
-                  <thead>
+            </div>
+            <table class="table table-bordered table-striped mb-0">
+                <thead>
                     <tr>
-                      <th>
-                        Nº Orden
-                      </th>
-                      <th>
-                        Sueltos
-                      </th>
-                      <th>
-                          Estado
-                      </th>
+                        <th>
+                            Nº Orden
+                        </th>
+                        <th>
+                            Sueltos
+                        </th>
+                        <th>
+                            Estado
+                        </th>
                     </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td data-title="Orden">
-                        1
-                      </td>
-                      <td data-title="Sueltos">
-                        0.20
-                      </td>
-                      <td data-title="Estado">
+                </thead>
+                <tbody>
+                    <tr *ngFor="let suelto of sueltos">
+                        <td data-title="Orden">
+                            {{suelto.ord_id_intsue}}
+                        </td>
+                        <td data-title="Sueltos">
+                            {{suelto.sueltos_intsue}}
+                        </td>
+                        <td data-title="Estado">
                             <div _ngcontent-c5="" class="form-check mb-2 mr-sm-2 mb-sm-0">
                                 <label _ngcontent-c5="" class="form-check-label">
-                                  <input _ngcontent-c5="" class="form-check-input" type="checkbox"> Procesado
+                                  <input _ngcontent-c5="" class="form-check-input" type="checkbox"
+                                  (click)="cambiarEstatus(suelto)"> Procesado
                                 </label>
                             </div>
-                        </td>                        
-                    </tr>
-                    <tr>
-                      <td data-title="Orden">
-                        1
-                      </td>
-                      <td data-title="Sueltos">
-                        0.20
-                      </td>
-                      <td data-title="Estado">
-                        <div _ngcontent-c5="" class="form-check mb-2 mr-sm-2 mb-sm-0">
-                            <label _ngcontent-c5="" class="form-check-label">
-                                <input _ngcontent-c5="" class="form-check-input" type="checkbox"> Procesado
-                            </label>
-                        </div>
-                       </td>
+                        </td>
                     </tr>
                     <tr>
                         <td colspan="3" align="right">
-                            <button type="submit" class="btn btn-primary">Guardar</button>                                
-                        </td>                       
+                            <button type="submit" class="btn btn-primary" (click)="guardar()" [disabled]="guardando">Guardar</button>
+                        </td>
                     </tr>
-                  </tbody>
-                </table>
-              </div>
-            </div>
-          </div>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

@@ -6,7 +6,7 @@ import { PendienteProviders } from './pendiente.providers';
   templateUrl: './pendiente.component.html',
   styleUrls: ['./pendiente.component.scss']
 })
-export class PendienteComponent implements OnInit{
+export class PendienteComponent implements OnInit {
   pendientes: any = [];
 
   constructor(

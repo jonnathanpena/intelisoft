@@ -120,8 +120,6 @@ export class BonesComponent implements OnInit {
           guardo = 0;
         }
         this.updateEstatusOrden(this.pedidos[i]);
-        this.insertLogEstatus(this.pedidos[i]);
-        this.updateDespacho(this.pedidos[i]);
       });
     }
     if (guardo === 1) {
@@ -148,6 +146,8 @@ export class BonesComponent implements OnInit {
           type: 'warning',
           message: '¡Ooops! Algo ocurrió mal'
         });
+      } else {
+        this.insertLogEstatus(orden);
       }
     });
     this.backup = this.alerts.map((alert: IAlert) => Object.assign({}, alert));
@@ -167,6 +167,8 @@ export class BonesComponent implements OnInit {
           type: 'warning',
           message: '¡Ooops! Algo ocurrió mal'
         });
+      } else {
+        this.updateDespacho(orden);
       }
     });
     this.backup = this.alerts.map((alert: IAlert) => Object.assign({}, alert));
