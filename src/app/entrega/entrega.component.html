@@ -9,71 +9,45 @@
             </div>
         </div>
         <div class="table-responsive justify-content-md-center">
-        <table class="table table-bordered table-striped mb-0">
-            <thead>
-                <tr>
-                    <th class="date">
-                        Fecha Pago
-                    </th>
-                    <th>
-                        Nº Orden
-                    </th>    
-                    <th>
-                        Cédula
-                    </th>     
-                    <th>
-                        Cant Aretes
-                    </th>                            
-                    <th>
-                        Monto Total
-                    </th>     
-                    <th>
-                        Estado
-                    </th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td data-title="Fecha" class="date">
-                        10/03/2018
-                    </td>
-                    <td data-title="Orden">
-                        123
-                    </td>
-                    <td data-title="Cédula">
-                        1298702345
-                    </td>
-                    <td data-title="Cant Arete">
-                        100
-                    </td>
-                    <td data-title="Monto">
-                        330
-                    </td>
-                    <td data-title="Estado">
-                        Entregado
-                    </td>
-                </tr>
-                <tr>
+            <table class="table table-bordered table-striped mb-0">
+                <thead>
+                    <tr>
+                        <th class="date">
+                            Fecha Pago
+                        </th>
+                        <th>
+                            Nº Orden
+                        </th>
+                        <th>
+                            Cédula
+                        </th>
+                        <th>
+                            Cant Aretes
+                        </th>
+                        <th>
+                            Monto Total
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let entrega of entregas">
                         <td data-title="Fecha" class="date">
-                            10/03/2018
+                            {{entrega.fecha_intpag | date:'dd/MM/yyyy HH:mm a'}}
                         </td>
                         <td data-title="Orden">
-                            123
+                            {{entrega.id_intorden}}
                         </td>
                         <td data-title="Cédula">
-                            1298702345
+                            {{entrega.cedula_intper}}
                         </td>
                         <td data-title="Cant Arete">
-                            100
+                            {{entrega.cant_aretes_intdetord}}
                         </td>
                         <td data-title="Monto">
-                            330
-                        </td>
-                        <td data-title="Estado">
-                            No Entregado
+                            {{entrega.total_intdetord}}
                         </td>
                     </tr>
-            </tbody>
+                </tbody>
             </table>
         </div>
     </div>

@@ -3,14 +3,18 @@ import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 
 import { EntregaRoutes } from './entrega.routing';
-import { entregaComponent } from './entrega.component';
+import { EntregaComponent } from './entrega.component';
+import { EntregaProviders } from './entrega.providers';
 
 @NgModule({
   imports: [
     CommonModule,
     RouterModule.forChild(EntregaRoutes)
   ],
-  declarations: [entregaComponent]
+  providers: [
+    EntregaProviders
+  ],
+  declarations: [EntregaComponent]
 })
 
 export class EntregaModule {}

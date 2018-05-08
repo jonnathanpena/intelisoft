@@ -1,10 +1,10 @@
 import { Routes } from '@angular/router';
 
-import { despachoComponent } from './despacho.component';
+import { DespachoComponent } from './despacho.component';
 
 export const DespachoRoutes: Routes = [{
   path: '',
-  component: despachoComponent,
+  component: DespachoComponent,
   data: {
     heading: 'Despacho a Punto de Venta',
     removeFooter: true

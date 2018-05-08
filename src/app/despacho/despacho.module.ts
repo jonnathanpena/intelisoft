@@ -3,14 +3,20 @@ import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 
 import { DespachoRoutes } from './despacho.routing';
-import { despachoComponent } from './despacho.component';
+import { DespachoComponent } from './despacho.component';
+import { DespachoProviders } from './despacho.providers';
 
 @NgModule({
   imports: [
     CommonModule,
     RouterModule.forChild(DespachoRoutes)
   ],
-  declarations: [despachoComponent]
+  providers: [
+    DespachoProviders
+  ],
+  declarations: [
+    DespachoComponent
+  ]
 })
 
 export class DespachoModule {}

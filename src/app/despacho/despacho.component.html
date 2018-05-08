@@ -1,88 +1,54 @@
 <div class="card">
-        <div class="card-header">
-            Despacho a Punto de Venta
-        </div>
-        <div class="card-body">
-            <div class="row">
-                <div class="col">
-                   <br>
-                </div>
+    <div class="card-header">
+        Despacho a Punto de Venta
+    </div>
+    <div class="card-body">
+        <div class="row">
+            <div class="col">
+                <br>
             </div>
-            <div class="table-responsive">
-                <table class="table table-bordered table-striped mb-0">
-                    <thead>
+        </div>
+        <div class="table-responsive">
+            <table class="table table-bordered table-striped mb-0">
+                <thead>
                     <tr>
                         <th class="date">
                             Fecha Pago
                         </th>
                         <th>
                             Nº Orden
-                        </th>                       
+                        </th>
                         <th>
                             Cédula
-                        </th>     
+                        </th>
                         <th>
                             Cant Aretes
                         </th>
                         <th>
-                            Monto Total    
-                        </th>                       
+                            Monto Total
+                        </th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
+                    <tr *ngFor="let despacho of despachos">
                         <td data-title="Fecha" class="date">
-                            10/03/2018
+                            {{despacho.fecha_intpag | date:'dd/MM/yyyy HH:mm a'}}
                         </td>
                         <td data-title="Orden">
-                            123
-                        </td>                        
-                        <td data-title="Cédula">
-                            1298702345
-                        </td>
-                        <td data-title="Cant Arete">
-                            100
-                        </td>
-                        <td data-title="Monto">
-                            330
-                        </td>
-                    </tr>
-                    <tr>
-                        <td data-title="Fecha" class="date">
-                            10/03/2018
-                        </td>
-                        <td data-title="Orden">
-                            123
-                        </td>                       
-                        <td data-title="Cédula">
-                            1298702345
-                        </td>
-                        <td data-title="Cant Arete">
-                            100
-                        </td>
-                        <td data-title="Monto">
-                            330
-                        </td>
-                    </tr>
-                    <tr>
-                        <td data-title="Fecha" class="date">
-                            10/03/2018
-                        </td>
-                        <td data-title="Orden">
-                            123
+                            {{despacho.id_intorden}}
                         </td>
                         <td data-title="Cédula">
-                            1298702345
+                            {{despacho.cedula_intper}}
                         </td>
                         <td data-title="Cant Arete">
-                            100
+                            {{despacho.cant_aretes_intdetord}}
                         </td>
                         <td data-title="Monto">
-                            330
+                            {{despacho.total_intdetord}}
                         </td>
                     </tr>
                 </tbody>
-                </table>
-            </div>
+            </table>
         </div>
     </div>
+</div>

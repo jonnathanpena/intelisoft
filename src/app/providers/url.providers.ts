@@ -287,4 +287,14 @@ export class ULRProvider {
     return this.dominio + 'detalle_impresora_bones/insert.php';
   }
 
+  /* despacho */
+  public getAllDespachos() {
+    return this.dominio + 'despachos/getAll.php';
+  }
+
+  /* entregas */
+  public getAllEntregas() {
+    return this.dominio + 'entregas/getAll.php';
+  }
+
 }
