@@ -43,6 +43,9 @@ import { DashboardProvider } from './dashboard/dashboard.providers';
 import { ConsultarProvider } from './consultar/consultar.providers';
 import { CrearProvider } from './crear/crear.providers';
 import { OrdenProvider } from './orden/orden.providers';
+import { EntregaProvider } from './entrega/entrega.providers';
+
+import { ModalModule } from 'ngx-bootstrap/modal';
 
 import {
           DxButtonModule,
@@ -50,7 +53,8 @@ import {
           DxFormComponent,
           DxTextBoxModule,
           DxValidatorModule,
-          DxSelectBoxModule
+          DxSelectBoxModule,
+          DxCheckBoxModule
         } from 'devextreme-angular';
 
 
@@ -69,6 +73,7 @@ import {
     DxFormModule,
     DxTextBoxModule,
     DxValidatorModule,
+    DxCheckBoxModule,
     BrowserModule,
     HttpClientModule,
     HttpModule,
@@ -80,6 +85,7 @@ import {
     FormsModule,
     BsDropdownModule.forRoot(),
     AlertModule.forRoot(),
+    ModalModule.forRoot(),
     TranslateModule.forRoot({
       loader: {
           provide: TranslateLoader,
@@ -98,7 +104,8 @@ import {
     DashboardProvider,
     ConsultarProvider,
     CrearProvider,
-    OrdenProvider
+    OrdenProvider,
+    EntregaProvider
   ],
   bootstrap: [AppComponent]
 })

@@ -77,4 +77,18 @@ export class ULRProvider {
     return this.dominio + 'precio_arete/getAll.php';
   }
 
+  /* Entrega */
+  public getEntregaByCI() {
+    return this.dominio + 'entregas/getEntregaByCI.php';
+  }
+
+  public entregar() {
+    return this.dominio + 'entregas/entregar.php';
+  }
+
+  /* Filiales */
+  public getAllFiliales() {
+    return this.dominio + '/filiales/getAll.php';
+  }
+
 }

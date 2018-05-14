@@ -1,75 +1,80 @@
 <div class="row">
-  <div class="col-lg-4 col-lg-offset-4 col-md-4 col-md-offset-4 col-sm-8 col-sm-offset-2 col-xs-12">
-    <div *ngFor="let alert of alerts">
-      <alert [type]="alert.type" [dismissible]="dismissible">{{ alert.msg }}</alert>
+    <div class="col-lg-4 col-lg-offset-4 col-md-4 col-md-offset-4 col-sm-8 col-sm-offset-2 col-xs-12">
+        <div *ngFor="let alert of alerts">
+            <alert [type]="alert.type" [dismissible]="dismissible">{{ alert.msg }}</alert>
+        </div>
     </div>
-  </div>
 </div>
 <div class="login-clean">
-  <form (submit)="entrar($event)">
-    <div class="logo" style="padding: 0px 0px 40px 0px;">
-      <img src="./assets/images/intelisoft.png">
-    </div>
+    <form (submit)="entrar($event)">
+        <div class="logo" style="padding: 0px 0px 40px 0px;">
+            <img src="./assets/images/intelisoft.png">
+        </div>
 
-    <div class="form-group">
-      <dx-text-box
-          class="form-control usuario"
-          name="login.usuario_intusu"
-          [(value)]="login.usuario_intusu"
-          placeholder="Usuario">
-        <dx-validator>
-          <dxi-validation-rule type="required" message="Usuario es requerido"></dxi-validation-rule>
-        </dx-validator>
-      </dx-text-box>
-    </div>
-    <div class="form-group">
-      <dx-text-box
-          class="form-control clave"
-          name="login.clave"
-          mode="password"
-          [(value)]="login.clave"
-          placeholder="Contraseña">
-        <dx-validator>
-          <dxi-validation-rule type="required" message="Clave es requerida"></dxi-validation-rule>
-        </dx-validator>
-      </dx-text-box>
-    </div>
-    <a class="forgot">
+        <div class="form-group">
+            <dx-text-box class="form-control usuario" name="login.usuario_intusu" [(value)]="login.usuario_intusu" placeholder="Usuario">
+                <dx-validator>
+                    <dxi-validation-rule type="required" message="Usuario es requerido"></dxi-validation-rule>
+                </dx-validator>
+            </dx-text-box>
+        </div>
+        <div class="form-group">
+            <dx-text-box class="form-control clave" name="login.clave" mode="password" [(value)]="login.clave" placeholder="Contraseña">
+                <dx-validator>
+                    <dxi-validation-rule type="required" message="Clave es requerida"></dxi-validation-rule>
+                </dx-validator>
+            </dx-text-box>
+        </div>
+        <a class="forgot">
       ¿Olvidaste la contraseña?
     </a>
-    <a class="forgot click" style="cursor: pointer;">
+        <a class="forgot click" style="cursor: pointer;">
       Click Aquí
     </a>
-    <div class="form-group">
-      <dx-button
-          text="Iniciar Sesión"
-          [useSubmitBehavior]="true"
-          class="btn btn-block btn-login">
-      </dx-button>
-    </div>
-  </form>
+        <div class="form-group">
+            <dx-button text="Iniciar Sesión" [useSubmitBehavior]="true" class="btn btn-block btn-login">
+            </dx-button>
+        </div>
+    </form>
 </div>
 <div class="footer-basic">
-  <footer>
-    <ul class="list-inline">
-      <li>
-        <a style="cursor: pointer;">
-          Loja
-        </a>
-      </li>
-      <li>
-        <a style="cursor: pointer;">
-          Loja
-        </a>
-      </li>
-      <li>
-        <a style="cursor: pointer;">
-          Loja
-        </a>
-      </li>
-    </ul>
-    <p class="copyright">
-      Intelisoft © 2018 | <a href="https://www.innovatuestilo.com/" class="innova">www.innovatuestilo.com</a>
-    </p>
-  </footer>
+    <footer>
+        <ul class="list-inline">
+            <li *ngFor="let filial of filiales">
+                <a style="cursor: pointer;" (click)="openModal(detalle, filial)"> {{filial.nombre_intcant}}, {{filial.nombre_intprov}} </a>
+            </li>
+        </ul>
+        <p class="copyright">
+            Intelisoft © 2018 | <a href="https://www.innovatuestilo.com/" class="innova" target="_blank">www.innovatuestilo.com</a>
+        </p>
+    </footer>
 </div>
+
+<ng-template #detalle>
+    <div class="modal-header">
+        <h4 class="modal-title pull-left"> {{detalles.nombre_intemp}} </h4>
+        <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+    </div>
+    <div class="modal-body">
+        <p>
+            <strong>Nombre Punto de Venta: </strong> {{detalles.nombre_intemp}}
+        </p>
+        <p>
+            <strong>Nombre Representante: </strong> {{detalles.nombre_intper}} {{detalles.apellido_intper}}
+        </p>
+        <p>
+            <strong>Parroquia, Cantón y Provincia: </strong> {{detalles.parroquia_intper}}, {{detalles.nombre_intcant}}, {{detalles.nombre_intprov}}
+        </p>
+        <p>
+            <strong>Dirección: </strong> {{detalles.direccion_intper}}
+        </p>
+        <p>
+            <strong>Teléfono: </strong> {{detalles.telefono_intper}}
+        </p>
+        <p>
+            <strong>Teléfono: </strong> {{detalles.correo_intper}}
+        </p>
+    </div>
+</ng-template>

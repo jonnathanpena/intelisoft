@@ -1,43 +1,32 @@
 <div class="container">
-  <div class="row">
-    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-      <h4>Consultar por Cédula de Identidad</h4>
-      <div class="input-group">
-        <input type="hidden" name="search_param" value="all" id="search_param">
-        <input type="text" class="form-control" name="cedula" placeholder="Ingrese el número de cédula"
-          [(value)]="cedula">
-        <span class="input-group-btn">
-          <button class="btn btn-default btn-buscar" type="button">
-            <span class="glyphicon glyphicon-search"></span>
-          </button>
-        </span>
-      </div>
+    <div class="row">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <h4>Consultar por Cédula de Identidad</h4>
+            <div class="input-group">
+                <input type="hidden" name="search_param" value="all" id="search_param">
+                <input type="text" class="form-control" name="cedula" placeholder="Ingrese el número de cédula" [(ngModel)]="cedula">
+                <span class="input-group-btn">
+                  <button class="btn btn-default btn-buscar" type="button" (click)="consultar()">
+                    <span class="glyphicon glyphicon-search"></span>
+                </button>
+                </span>
+            </div>
+        </div>
     </div>
-  </div>
 
-  <div class="row resultado">
-    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-      <label>
-        <input type="checkbox" [checked]="entregado" name="entregado">
-        Entregado
-      </label>
+    <div class="row resultado" *ngIf="resultados">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <dx-check-box [value]="entregado" text="Entregado" [disabled]="seleccionar" (onValueChanged)="seleccion($event)"></dx-check-box>
+        </div>
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <dx-check-box [value]="despachado" text="Despachado" [disabled]="true"></dx-check-box>
+        </div>
     </div>
-    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-      <label>
-        <input type="checkbox" [checked]="despachado" name="despachado">
-        Despacho
-      </label>
-    </div>
-  </div>
 
-  <div class="row">
-    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 boton">
-      <dx-button
-          text="Guardar"
-          [useSubmitBehavior]="true"
-          class="btn boton"
-          style="float: right;">
-      </dx-button>
+    <div class="row" *ngIf="resultados">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 boton">
+            <dx-button text="Guardar" class="btn boton" style="float: right;" [disabled]="guardando" (click)="entregar()">
+            </dx-button>
+        </div>
     </div>
-  </div>
 </div>

@@ -4,32 +4,22 @@ import { Http, Response, Headers, RequestOptions } from '@angular/http';
 import 'rxjs/add/operator/map';
 
 @Injectable()
-export class  LoginProvider {
+export class  EntregaProvider {
 
   constructor(
     private http: Http,
     private urlProvider: ULRProvider) {}
 
 
-  public entrar(objeto: any) {
-    return this.http.post(this.urlProvider.entrar(), JSON.stringify(objeto), {
+  public getEntregaByCID(objeto: any) {
+    return this.http.post(this.urlProvider.getEntregaByCI(), JSON.stringify(objeto), {
       headers: new Headers({ 'Content-Type': 'application/json' })
     })
       .map((resp: Response) => resp);
   }
 
-  public geIP() {
-    return this.http.get(this.urlProvider.getIP())
-      .map((res: Response) => res.json());
-  }
-
-  public getAllFiliales() {
-    return this.http.get(this.urlProvider.getAllFiliales())
-      .map((res: Response) => res.json());
-  }
-
-  public insert(objeto: any) {
-    return this.http.post(this.urlProvider.insertLogLogin(), JSON.stringify(objeto), {
+  public entregar(objeto: any) {
+    return this.http.post(this.urlProvider.entregar(), JSON.stringify(objeto), {
       headers: new Headers({ 'Content-Type': 'application/json' })
     })
       .map((resp: Response) => resp);

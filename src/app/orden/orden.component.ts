@@ -129,7 +129,8 @@ export class OrdenComponent implements OnInit {
   calcularTotal() {
     const cantidad = this.orden.cant_aretes_intdetord * 1;
     const precio = this.costo * 1;
-    const subtotal = cantidad * precio;
+    const comision = this.usuario.usuario.comision_intemp * 1;
+    const subtotal = (cantidad * precio) + comision;
     const iva = subtotal * 12 / 100;
     const total = subtotal + iva;
     this.orden.sub_total_intdetord = subtotal.toFixed(2);
